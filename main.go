@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"groupie/data"
 	"groupie/funcs"
+	"groupie/handlers"
+	"net/http"
 )
 
 func main() {
@@ -14,12 +16,17 @@ func main() {
 		return
 	}
 
-	var Groups []data.Group
+	json.Unmarshal([]byte(res), &data.Groups)
 
-	json.Unmarshal([]byte(res), &Groups)
+	mux := http.NewServeMux()
+	stylizeFolder := http.FileServer(http.Dir("./static"))
+	mux.Handle("/static/", http.StripPrefix("/static/", stylizeFolder))
+	mux.HandleFunc("/", handlers.HomeHandler)
 
-	for _, gr := range Groups {
-		fmt.Println(gr)
-		fmt.Println()
+	server := http.Server{
+		Addr:    ":4561",
+		Handler: mux,
 	}
+
+	server.ListenAndServe()
 }

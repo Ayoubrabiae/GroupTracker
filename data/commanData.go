@@ -11,3 +11,5 @@ type Group struct {
 	ConcertDates string   `json:"concertDates"`
 	Relations    string   `json:"relations"`
 }
+
+var Groups []Group
