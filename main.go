@@ -1,23 +1,15 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"net/http"
 
-	"groupie/data"
 	"groupie/funcs"
 	"groupie/handlers"
 )
 
 func main() {
-	res, err := funcs.GetJsonData("https://groupietrackers.herokuapp.com/api/artists")
-	if err != nil {
-		fmt.Println("Error", err)
-		return
-	}
-
-	json.Unmarshal([]byte(res), &data.Groups)
+	funcs.FillData()
 
 	mux := http.NewServeMux()
 	stylizeFolder := http.FileServer(http.Dir("./static"))

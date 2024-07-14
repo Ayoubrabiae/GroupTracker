@@ -12,4 +12,31 @@ type Group struct {
 	Relations    string   `json:"relations"`
 }
 
-var Groups []Group
+type LocationsType struct {
+	Index []struct {
+		Id        int      `json:"id"`
+		Locations []string `json:"locations"`
+		Dates     string   `json:"dates"`
+	} `json:"index"`
+}
+
+type DatesType struct {
+	Index []struct {
+		Id    int      `json:"id"`
+		Dates []string `json:"dates"`
+	} `json:"index"`
+}
+
+type Relations struct {
+	Index []struct {
+		Id             int                 `json:"id"`
+		DatesLocations map[string][]string `json:"datesLocations"`
+	} `json:"index"`
+}
+
+var (
+	Groups          []Group
+	LocationsHolder LocationsType
+	DatesHolder     DatesType
+	RelationsHolder Relations
+)
