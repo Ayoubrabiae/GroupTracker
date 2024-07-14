@@ -34,6 +34,13 @@ type Relations struct {
 	} `json:"index"`
 }
 
+type ProfileData struct {
+	Group     Group
+	Locations []string
+	Dates     []string
+	Relations map[string][]string
+}
+
 var (
 	Groups          []Group
 	LocationsHolder LocationsType

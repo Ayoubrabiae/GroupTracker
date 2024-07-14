@@ -291,24 +291,26 @@ header .nav-menu li a:hover {
 
 .profile .top-info .info div p {}
 
-.profile .members {
+.profile .pr-section {
     padding: var(--p-padding) 0;
-    background-color: var(--hover-color);
+    margin: var(--p-padding) 0px;
+    box-shadow: 0 2px 5px #cbcbcb;
+    text-transform: capitalize;
 }
 
-.profile .members .title {
+.profile .pr-section .title {
     margin: calc(0px - var(--p-padding)) auto 0;
     transform: translateY(-62%);
 }
 
-.profile .members .title h2 {
+.profile .pr-section .title h2 {
     margin-bottom: 30px;
     font-size: 40px;
     position: relative;
     width: fit-content;
 }
 
-.profile .members .title h2::after {
+.profile .pr-section .title h2::after {
     content: "";
     position: absolute;
     width: 80%;
@@ -318,7 +320,7 @@ header .nav-menu li a:hover {
     left: 0;
 }
 
-.profile .members .title + .container {
+.profile .pr-section .pr-container {
     font-weight: bold;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -326,25 +328,49 @@ header .nav-menu li a:hover {
     gap: 30px;
 }
 
-.profile .members .member {}
-
-.profile .bottom-info {
-    padding: var(--p-padding) 0;
-}
-
-.profile .bottom-info .container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 20px;
-    justify-content: center;
+.profile .pr-section .item {
     font-weight: bold;
+    padding: 7px 30px;
+    background-color: transparent;
+    border: 1px solid var(--hover-color);
+    transition-duration: var(--drt);
 }
 
-.profile .bottom-info a {}
+.profile .pr-section .item:hover {
+    background-color: var(--hover-color);
+}
 
-.profile .bottom-info a i {}
+.profile .relations .relations-item:not(:last-child) {
+    margin-bottom: var(--p-padding);
+    padding-bottom: var(--p-padding);
+    border-bottom: 1px solid var(--hover-color);
+}
 
+.profile .relations .relations-item .location {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.profile .relations .relations-item .dates {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.profile .relations .relations-item .dates .item {
+
+}
+
+/* .profile .members {
+    background-color: var(--hover-color);
+}
+
+.profile .dates {
+    background-color: var(--hover-color);
+} */
 /* Footer styling */
 footer {
     background-color: #000;

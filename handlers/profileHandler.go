@@ -31,6 +31,13 @@ func ProfileHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	profileData := data.ProfileData{
+		Group:     data.Groups[idNum-1],
+		Locations: data.LocationsHolder.Index[idNum-1].Locations,
+		Dates:     data.DatesHolder.Index[idNum-1].Dates,
+		Relations: data.RelationsHolder.Index[idNum-1].DatesLocations,
+	}
+
 	tmpl, err := template.ParseGlob("static/templates/*.html")
 	if err != nil {
 		http.Error(w, "Server Error 500", http.StatusInternalServerError)
@@ -38,5 +45,5 @@ func ProfileHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	tmpl.ExecuteTemplate(w, "profile", data.Groups[idNum-1])
+	tmpl.ExecuteTemplate(w, "profile", profileData)
 }

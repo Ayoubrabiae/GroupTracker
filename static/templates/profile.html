@@ -15,34 +15,58 @@
             <div class="top-info">
                 <div class="container">
                     <div class="image">
-                        <img src="{{.Image}}" alt="group image">
+                        <img src="{{.Group.Image}}" alt="group image">
                     </div>
                     <div class="info">
-                        <h2 class="title">{{.Name}}</h2>
+                        <h2 class="title">{{.Group.Name}}</h2>
                         <div class="creation-date">
                             <i class='bx bxs-calendar'></i>
-                            <p>Created at {{.CreationDate}}</p>
+                            <p>Created at {{.Group.CreationDate}}</p>
                         </div>
                         <div class="first-album">
                             <i class='bx bx-album'></i>
-                            <p>First Album was in {{.FirstAlbum}}</p>
+                            <p>First Album was in {{.Group.FirstAlbum}}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="members">
+            <div class="members pr-section">
                 <div class="title container"><h2><i class='bx bxs-user'></i> Members</h2></div>
-                <div class="container">
-                    {{ range .Members }}
-                        <p class="member">{{ . }}</p>
+                <div class="container pr-container">
+                    {{ range .Group.Members }}
+                        <p class="item">{{ . }}</p>
                     {{ end }}
                 </div>
             </div>
-            <div class="bottom-info">
+            <div class="locations pr-section">
+                <div class="title container"><h2><i class='bx bxs-map'></i> Locations</h2></div>
+                <div class="container pr-container">
+                    {{ range .Locations }}
+                        <p class="item">{{ . }}</p>
+                    {{ end }}
+                </div>
+            </div>
+            <div class="dates pr-section">
+                <div class="title container"><h2><i class='bx bxs-calendar'></i> Dates</h2></div>
+                <div class="container pr-container">
+                    {{ range .Dates }}
+                        <p class="item">{{ . }}</p>
+                    {{ end }}
+                </div>
+            </div>
+            <div class="relations pr-section">
+                <div class="title container"><h2><i class='bx bx-git-compare'></i> Relations</h2></div>
                 <div class="container">
-                    <a href="{{.Locations}}" class="locations"><i class='bx bxs-map'></i> Locations</a>
-                    <a href="{{.ConcertDates}}" class="concert-dates"><i class='bx bxs-calendar-week'></i> Concert Dates</a>
-                    <a href="{{.Relations}}" class="relations"><i class='bx bx-git-compare' ></i> Relations</a>
+                    {{ range $key, $val := .Relations }}
+                        <div class="relations-item">
+                            <h3 class="location">{{ $key }}</h3>
+                            <div class="dates">
+                                {{ range $val }}
+                                    <p class="item">{{ . }}</p>
+                                {{ end }}
+                            </div>
+                        </div>
+                    {{ end }}
                 </div>
             </div>
     </section>
