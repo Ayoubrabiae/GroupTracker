@@ -1,10 +1,12 @@
 {{ define "card" }}
     <div class="card">
-        <div class="image">
-            <img src={{.Image}} alt="group image">
-        </div>
-        <div class="info">
-            <h3 class="name">{{.Name}}</h3>
-        </div>
+        <a href="/groups/{{.Id}}">
+            <div class="image">
+                <img src={{.Image}} alt="group image">
+            </div>
+            <div class="info">
+                <h3 class="name">{{.Name}}</h3>
+            </div>
+        </a>
     </div>
 {{ end }}

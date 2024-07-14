@@ -3,10 +3,11 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"net/http"
+
 	"groupie/data"
 	"groupie/funcs"
 	"groupie/handlers"
-	"net/http"
 )
 
 func main() {
@@ -22,11 +23,14 @@ func main() {
 	stylizeFolder := http.FileServer(http.Dir("./static"))
 	mux.Handle("/static/", http.StripPrefix("/static/", stylizeFolder))
 	mux.HandleFunc("/", handlers.HomeHandler)
+	mux.HandleFunc("/groups/", handlers.ProfileHandler)
 
 	server := http.Server{
 		Addr:    ":4561",
 		Handler: mux,
 	}
+
+	fmt.Println("http://localhost:4561")
 
 	server.ListenAndServe()
 }
