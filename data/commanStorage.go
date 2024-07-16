@@ -7,8 +7,14 @@ type MainType struct {
 	Relations string `json:"relation"`
 }
 
-type Dates struct {
-	Index []struct{} `json:""`
+type DatesType struct {
+	Index []struct {
+		Id    int      `json:"id"`
+		Dates []string `json:"dates"`
+	} `json:"index"`
 }
 
-var MainData MainType
+var (
+	MainData    MainType
+	DatesHolder DatesType
+)
