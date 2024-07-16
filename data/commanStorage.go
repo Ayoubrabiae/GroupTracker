@@ -7,4 +7,8 @@ type MainType struct {
 	Relations string `json:"relation"`
 }
 
+type Dates struct {
+	Index []struct{} `json:""`
+}
+
 var MainData MainType
