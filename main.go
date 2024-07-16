@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"encoding/json"
+	"fmt"
+	"net/http"
+)
 
 type Artist struct {
 	Id           int    `json:"id"`
@@ -14,6 +18,14 @@ type Artist struct {
 	Relations    string `json:"relations"`
 }
 
+type Locations struct {
+	
+}
+
 func main() {
-	fmt.Println("Hi")
+	url := "https://groupietrackers.herokuapp.com/api/artists"
+	var artist []Artist
+	D, _ := http.Get(url)
+	json.NewDecoder(D.Body).Decode(&artist)
+	fmt.Println(artist[5].Name)
 }
