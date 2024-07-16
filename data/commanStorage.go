@@ -7,4 +7,23 @@ type MainType struct {
 	Relations string `json:"relation"`
 }
 
-var MainData MainType
+type ArtistType struct {
+	Id           int    `json:"id"`
+	Image        string `json:"image"`
+	Name         string `json:"name"`
+	Members      string `json:"members"`
+	CreationDate int    `json:"creationData"`
+	FirstAlbum   string `json:"firstAlbum"`
+}
+
+type LocationsType struct {
+	Locations string `json:"locations"`
+	Dates string `json:"dates"`
+}
+
+var (
+
+	Artist   ArtistType
+	Locations LocationsType
+	MainData MainType
+)

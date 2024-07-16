@@ -7,10 +7,6 @@ import (
 	"groupie-tracker/funcs"
 )
 
-type Locations struct {
-	
-}
-
 func main() {
 	url := "https://groupietrackers.herokuapp.com/api/artists"
 	var artist []Artist
