@@ -1,22 +1,11 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
-	"net/http"
-)
 
-type Artist struct {
-	Id           int    `json:"id"`
-	Image        string `json:"image"`
-	Name         string `json:"name"`
-	Members      string `json:"members"`
-	CreationDate int    `json:"creationDate"`
-	FirstAlbum   string `json:"firstAlbum"`
-	Locations    string `json:"locations"`
-	ConcertDates string `json:"concerDates"`
-	Relations    string `json:"relations"`
-}
+	"groupie-tracker/data"
+	"groupie-tracker/funcs"
+)
 
 type Locations struct {
 	
