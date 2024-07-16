@@ -1,19 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
 
-type Artist struct {
-	Id           int    `json:"id"`
-	Image        string `json:"image"`
-	Name         string `json:"name"`
-	Members      string `json:"members"`
-	CreationDate int    `json:"creationDate"`
-	FirstAlbum   string `json:"firstAlbum"`
-	Locations    string `json:"locations"`
-	ConcertDates string `json:"concerDates"`
-	Relations    string `json:"relations"`
-}
+	"groupie-tracker/data"
+	"groupie-tracker/funcs"
+)
 
 func main() {
-	fmt.Println("Hi")
+	funcs.GetAndParse("https://groupietrackers.herokuapp.com/api", &data.MainData)
+
+	fmt.Println(data.MainData)
 }
