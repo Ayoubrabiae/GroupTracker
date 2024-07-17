@@ -5,8 +5,8 @@ import (
 	"net/http"
 )
 
-func GetAndParse(s string, any interface{}) error {
-	D, err := http.Get(s)
+func GetAndParse(URL string, any interface{}) error {
+	D, err := http.Get(URL)
 	if err != nil {
 		return err
 	}
