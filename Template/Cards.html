@@ -9,7 +9,12 @@
     <div>
 
         <h1>Im a card</h1>
-            <p> {{.Name}} </p>
+        {{range .}}
+        <p>{{.Name}}</p>
+        {{range .}}
+            <p>{{.Members}}</p>
+            {{end}}
+        {{end}}
     </div>
     
 </body>
