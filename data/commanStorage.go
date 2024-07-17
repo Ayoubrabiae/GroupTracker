@@ -14,7 +14,15 @@ type DatesType struct {
 	} `json:"index"`
 }
 
+type RelationsType struct {
+	Index []struct {
+		Id             int               `json:"id"`
+		DatesLocations map[string]string `json:"datesLocations"`
+	} `json:"index"`
+}
+
 var (
-	MainData    MainType
-	DatesHolder DatesType
+	MainData        MainType
+	DatesHolder     DatesType
+	RelationsHolder RelationsType
 )
