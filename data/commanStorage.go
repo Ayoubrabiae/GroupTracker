@@ -22,8 +22,24 @@ type LocationsType struct {
 	Dates     string   `json:"dates"`
 }
 
+type DatesType struct {
+	Index []struct {
+		Id    int      `json:"id"`
+		Dates []string `json:"dates"`
+	} `json:"index"`
+}
+
+type RelationsType struct {
+	Index []struct {
+		Id             int               `json:"id"`
+		DatesLocations map[string]string `json:"datesLocations"`
+	} `json:"index"`
+}
+
 var (
 	Artist    []ArtistType
 	Locations []LocationsType
-	MainData  []MainType
+	MainData  MainType
+	Dates     DatesType
+	Relations RelationsType
 )
