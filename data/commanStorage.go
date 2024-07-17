@@ -17,13 +17,31 @@ type ArtistType struct {
 }
 
 type LocationsType struct {
-	Id        int      `json:"id"`
-	Locations []string `json:"locations"`
-	Dates     string   `json:"dates"`
+	Index []struct {
+		Id        int      `json:"id"`
+		Locations []string `json:"locations"`
+		Dates     string   `json:"dates"`
+	} `json:"index"`
+}
+
+type DatesType struct {
+	Index []struct {
+		Id    int      `json:"id"`
+		Dates []string `json:"dates"`
+	} `json:"index"`
+}
+
+type RelationsType struct {
+	Index []struct {
+		Id             int               `json:"id"`
+		DatesLocations map[string]string `json:"datesLocations"`
+	} `json:"index"`
 }
 
 var (
 	Artist    []ArtistType
-	Locations []LocationsType
-	MainData  []MainType
+	Locations LocationsType
+	MainData  MainType
+	Dates     DatesType
+	Relations RelationsType
 )
