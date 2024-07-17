@@ -22,7 +22,7 @@ type RelationsType struct {
 }
 
 var (
-	MainData        MainType
-	DatesHolder     DatesType
-	RelationsHolder RelationsType
+	MainData  MainType
+	Dates     DatesType
+	Relations RelationsType
 )
