@@ -17,9 +17,11 @@ type ArtistType struct {
 }
 
 type LocationsType struct {
-	Id        int      `json:"id"`
-	Locations []string `json:"locations"`
-	Dates     string   `json:"dates"`
+	Index []struct {
+		Id        int      `json:"id"`
+		Locations []string `json:"locations"`
+		Dates     string   `json:"dates"`
+	} `json:"index"`
 }
 
 type DatesType struct {
@@ -38,7 +40,7 @@ type RelationsType struct {
 
 var (
 	Artist    []ArtistType
-	Locations []LocationsType
+	Locations LocationsType
 	MainData  MainType
 	Dates     DatesType
 	Relations RelationsType
