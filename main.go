@@ -8,9 +8,7 @@ import (
 )
 
 func main() {
-	url := "https://groupietrackers.herokuapp.com/api/artists"
-	var artist []Artist
-	D, _ := http.Get(url)
-	json.NewDecoder(D.Body).Decode(&artist)
-	fmt.Println(artist[5].Name)
+	funcs.GetAndParse("https://groupietrackers.herokuapp.com/api", &data.MainData)
+
+	fmt.Println(data.MainData)
 }

@@ -5,16 +5,15 @@ import (
 	"net/http"
 )
 
-func GetAndParse(url string, v interface{}) error {
-	res, err := http.Get(url)
+func GetAndParse(s string, any interface{}) error {
+	D, err := http.Get(s)
 	if err != nil {
 		return err
 	}
 
-	err = json.NewDecoder(res.Body).Decode(v)
+	err = json.NewDecoder(D.Body).Decode(&any)
 	if err != nil {
-		return nil
+		return err
 	}
-
 	return nil
 }
