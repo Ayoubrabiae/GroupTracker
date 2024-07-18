@@ -11,7 +11,7 @@ func GetAndParse(URL string, any interface{}) error {
 		return err
 	}
 
-	err = json.NewDecoder(D.Body).Decode(&any)
+	err = json.NewDecoder(D.Body).Decode(any)
 	if err != nil {
 		return err
 	}

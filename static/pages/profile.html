@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Artist.Name }}</title>
+</head>
+<body>
+    <section class="user-info">
+        <div class="container">
+            <div class="image">
+                <img src="{{.Artist.Image}}" alt="artist image">
+            </div>
+            <div class="info">
+                <h2 class="artist-name">{{ .Artist.Name }}</h2>
+                <div class="dates">
+                    <p class="creation">Created at {{ .Artist.CreationDate }}</p>
+                   <p class="first-album">First album was at {{ .Artist.FirstAlbum }}</p> 
+                </div>
+                <div class="members">
+                    {{ range .Artist.Members }}
+                        <p class="member">{{ . }}</p>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="locations">
+        <h2 class="title">Locations</h2>
+        <div class="container">
+            {{ range .Locations }}
+                <p class="location">{{ . }}</p>
+            {{ end }}
+        </div>
+    </section>
+    <section class="dates">
+        <h2 class="dates">Dates</h2>
+        <div class="container">
+            {{ range .Dates }}
+                <p class="date">{{ . }}</p>
+            {{ end }}
+        </div>
+    </section>
+    <section class="relations">
+        <h2 class="title">Relations</h2>
+        <div class="container">
+            {{ range $key, $val := .Relations }}
+                <p class="relation">{{ $key }}: {{ $val }}</p>
+            {{ end }}
+        </div>
+    </section>
+</body>
+</html>

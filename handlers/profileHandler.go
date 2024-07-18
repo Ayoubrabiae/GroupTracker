@@ -69,6 +69,7 @@ func ProfileHandler(w http.ResponseWriter, r *http.Request) {
 	err = tmp.Execute(w, profileData)
 	if err != nil {
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		fmt.Println("When we excute")
 		return
 	}
 }

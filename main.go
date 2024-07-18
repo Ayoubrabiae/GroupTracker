@@ -2,27 +2,30 @@ package main
 
 import (
 	"fmt"
-	"html/template"
 	"net/http"
 
 	"groupie-tracker/data"
 	"groupie-tracker/funcs"
+	"groupie-tracker/handlers"
 )
 
-// var tp1 *template.Template
 func main() {
-	// template.ParseGlob("./Template/*.html")
-	http.HandleFunc("/", main_Page)
-	http.ListenAndServe(":8081", nil)
-	// fmt.Println(data.Artist)
-}
+	funcs.GetAndParse("https://groupietrackers.herokuapp.com/api", &data.MainData)
+	funcs.GetAndParse(data.MainData.Artists, &data.Artist)
+	funcs.GetAndParse(data.MainData.Relations, &data.Relations)
+	funcs.GetAndParse(data.MainData.Dates, &data.Dates)
+	funcs.GetAndParse(data.MainData.Locations, &data.Locations)
 
-func main_Page(w http.ResponseWriter, r *http.Request) {
-	err := funcs.GetAndParse("https://groupietrackers.herokuapp.com/api/artists", &data.Artist)
-	if err != nil {
-		fmt.Println(err)
+	mux := http.NewServeMux()
+	mux.HandleFunc("/", handlers.HomeHandler)
+	mux.HandleFunc("/artists/", handlers.ProfileHandler)
+	mux.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
+
+	server := http.Server{
+		Addr:    ":8050",
+		Handler: mux,
 	}
-	tp1, _ := template.ParseFiles("Template/Cards.html")
-	err = tp1.ExecuteTemplate(w, "Cards.html", data.Artist)
-	fmt.Println(err)
+
+	fmt.Println("http://localhost:8050")
+	server.ListenAndServe()
 }
