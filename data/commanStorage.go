@@ -7,6 +7,13 @@ type MainType struct {
 	Relations string `json:"relation"`
 }
 
+type ArtistInfo struct {
+	Artist ArtistType
+	Locations LocationsType
+	Dates DatesType
+	Relations RelationsType
+}
+
 type ArtistType struct {
 	Id           int      `json:"id"`
 	Image        string   `json:"image"`
