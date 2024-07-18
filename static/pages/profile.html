@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Infos</title>
+</head>
+<style>
+    .info {
+        margin-bottom: 10px;
+    }
+</style>
+<body>
+    <div class="info">
+        <img src="{{ .Image}}">
+        <h2>Name:</h2>
+        <p>
+            {{ .p.Artists.name }}
+        </p> 
+        <h2>Members:</h2>
+        <p>
+            {{range .user.Artists.Members}}
+            {{.}}
+            {{end}}
+        </p>
+        <h2>CreationDate:</h2>
+        <p>
+            {{.user.Artists.CreationDate}}
+        </p>
+        <h2>First Album:</h2>
+        <p>
+        {{.user.Artists.FirstAlbum}}
+    </p>
+
+    </div>
+</body>
+</html>

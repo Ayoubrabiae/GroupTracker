@@ -12,7 +12,7 @@ type ArtistType struct {
 	Image        string   `json:"image"`
 	Name         string   `json:"name"`
 	Members      []string `json:"members"`
-	CreationDate int      `json:"creationData"`
+	CreationDate int      `json:"creationDate"`
 	FirstAlbum   string   `json:"firstAlbum"`
 }
 
@@ -38,10 +38,16 @@ type RelationsType struct {
 	} `json:"index"`
 }
 
+type AllinfosType struct {
+	ArtistT ArtistType
+	LocationsT LocationsType
+	DatesT DatesType
+	RelationsT RelationsType
+}
 var (
 	Artist    []ArtistType
 	Locations LocationsType
 	MainData  MainType
-	Dates     DatesType
-	Relations RelationsType
+	Dates     []DatesType
+	Relations []RelationsType
 )

@@ -1,28 +1,20 @@
 package main
 
 import (
-	"fmt"
-	"html/template"
-	"net/http"
-
 	"groupie-tracker/data"
 	"groupie-tracker/funcs"
+	"groupie-tracker/handlers"
+	"log"
+	"net/http"
 )
 
-// var tp1 *template.Template
 func main() {
-	// template.ParseGlob("./Template/*.html")
-	http.HandleFunc("/", main_Page)
-	http.ListenAndServe(":8081", nil)
-	// fmt.Println(data.Artist)
-}
+	funcs.GetAndParse("https://groupietrackers.herokuapp.com/api/artists", &data.Artist)
+	funcs.GetAndParse("https://groupietrackers.herokuapp.com/api/locations", &data.Locations)
+	funcs.GetAndParse("https://groupietrackers.herokuapp.com/api/dates", &data.Dates)
+	funcs.GetAndParse("https://groupietrackers.herokuapp.com/api/relation", &data.Relations)
 
-func main_Page(w http.ResponseWriter, r *http.Request) {
-	err := funcs.GetAndParse("https://groupietrackers.herokuapp.com/api/artists", &data.Artist)
-	if err != nil {
-		fmt.Println(err)
-	}
-	tp1, _ := template.ParseFiles("Template/Cards.html")
-	err = tp1.ExecuteTemplate(w, "Cards.html", data.Artist)
-	fmt.Println(err)
+	http.HandleFunc("/", handlers.Main_Page)
+	http.HandleFunc("/artists/", handlers.Infos)
+	log.Fatal(http.ListenAndServe(":8080", http.DefaultServeMux))
 }
