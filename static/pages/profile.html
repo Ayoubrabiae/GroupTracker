@@ -15,21 +15,21 @@
         <img src="{{ .Image}}">
         <h2>Name:</h2>
         <p>
-            {{ .p.Artists.name }}
+            {{ .Artists.Name }}
         </p> 
         <h2>Members:</h2>
         <p>
-            {{range .user.Artists.Members}}
+            {{range .Artists.Members}}
             {{.}}
             {{end}}
         </p>
         <h2>CreationDate:</h2>
         <p>
-            {{.user.Artists.CreationDate}}
+            {{.Artists.CreationDate}}
         </p>
         <h2>First Album:</h2>
         <p>
-        {{.user.Artists.FirstAlbum}}
+        {{.FirstAlbum}}
     </p>
 
     </div>

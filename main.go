@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 
@@ -17,5 +18,6 @@ func main() {
 
 	http.HandleFunc("/", handlers.HomeHandler)
 	http.HandleFunc("/artists/", handlers.ProfileHandler)
+	fmt.Println("http://localhost:8080/")
 	log.Fatal(http.ListenAndServe(":8080", http.DefaultServeMux))
 }
