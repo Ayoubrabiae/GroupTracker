@@ -52,6 +52,7 @@ func ProfileHandler(w http.ResponseWriter, r *http.Request) {
 
 	userId--
 
+	fmt.Println(data.Relations)
 	profileData := struct {
 		Artist    data.ArtistType
 		Locations []string
@@ -63,8 +64,6 @@ func ProfileHandler(w http.ResponseWriter, r *http.Request) {
 		Dates:     data.Dates.Index[userId].Dates,
 		Relations: data.Relations.Index[userId].DatesLocations,
 	}
-
-	fmt.Println(data.Relations.Index[userId])
 
 	err = tmp.Execute(w, profileData)
 	if err != nil {

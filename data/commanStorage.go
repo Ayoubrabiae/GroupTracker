@@ -8,9 +8,9 @@ type MainType struct {
 }
 
 type ArtistInfo struct {
-	Artist ArtistType
+	Artist    ArtistType
 	Locations LocationsType
-	Dates DatesType
+	Dates     DatesType
 	Relations RelationsType
 }
 
@@ -46,15 +46,16 @@ type RelationsType struct {
 }
 
 type AllinfosType struct {
-	ArtistT ArtistType
+	ArtistT    ArtistType
 	LocationsT LocationsType
-	DatesT DatesType
+	DatesT     DatesType
 	RelationsT RelationsType
 }
+
 var (
 	Artist    []ArtistType
 	Locations LocationsType
 	MainData  MainType
-	Dates     []DatesType
-	Relations []RelationsType
+	Dates     DatesType
+	Relations RelationsType
 )
