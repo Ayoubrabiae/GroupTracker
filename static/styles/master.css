@@ -12,9 +12,10 @@ html {
 }
 
 body {
-    --act-color: #6A0DAD;
-    --nav-color: #2D9CDB;   
-    --logo-color: #FFD700;
+    --main-color: #FF6347;
+    --sec-color : #FF7F50;
+    --act-color: #87CEEB;   
+    --hover-color: #FFD700;
     --text-color: #333333;
     --bg-color: #FFFFFF;
     --drt: 0.3s;
@@ -26,11 +27,12 @@ body {
 }
 
 body.dark {
-    --act-color: #5E2C89;
-    --nav-color: #4CB2E6;
-    --logo-color: #FFCC00;
-    --text-color: #FFFFFF;
-    --bg-color:  #000000;
+    --main-color: #FF6347;
+    --sec-color : #FF7F50;
+    --act-color: #40E0D0;   
+    --hover-color: #FFD700;
+    --text-color: #D3D3D3;
+    --bg-color: #2E2E2E;
 }
 
 a {
@@ -64,94 +66,4 @@ ul {
     }
 }
 
-/* Hero styling */
-.hero {
-    min-height: 100vh;
-    background-image: url("/static/images/img1.jpg");
-    background-size: cover;
-    background-position: center center;
-    position: relative;
-    color: var(--bg-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero::after {
-    position: absolute;
-    content: "";
-    height: 100%;
-    width: 100%;
-    left: 0;
-    top: 0;
-    background-color: #001014;
-    opacity: 0.6;
-}
-
-.hero .container {
-    z-index: 1;
-    position: relative;
-    text-align: center;
-}
-
-.hero .title {
-    font-size: 60px;
-    margin-bottom: 20px;
-    /* color: var(--logo-color); */
-}
-
-.hero p {
-    font-size: 22px;
-}
-
-@media (max-width: 600px) {
-    .hero .title {
-        font-size: 40px;
-    }
-    
-    .hero p {
-        font-size: 15px;
-    }
-}
-
-.hero p span {
-    text-transform: capitalize;
-    font-weight: bold;
-}
-
-/* header */
-header {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    z-index: 5;
-    color: var(--bg-color);
-    backdrop-filter: brightness(0.7) blur(10px);
-    padding: 20px 0;
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header .logo {
-    font-size: 20px;
-    font-weight: bold;
-    color: var(--logo-color);
-}
-
-header .dark-mode-btn {
-    border: 1px solid currentColor;
-    font-size: 20px;
-    padding: 3.5px 11px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition-duration: var(--drt);
-}
-
-header .dark-mode-btn:hover {
-    color: var(--act-color);
-}
+/* Header Styling */
