@@ -1,5 +1,5 @@
 /* Global Styling */
-@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 * {
     box-sizing: border-box;
@@ -18,11 +18,15 @@ body {
     --hover-color: #FFD700;
     --text-color: #333333;
     --bg-color: #FFFFFF;
+    --body-font: "Roboto", sans-serif;
+    --main-font: "Montserrat", sans-serif;
+    --act-font: "Poppins", sans-serif;
     --drt: 0.3s;
     --main-pad: 100px;
-    font-family: "Edu AU VIC WA NT Hand", cursive;
+    font-family: var(--body-font);
     background-color: var(--bg-color);
     color: var(--text-color);
+    transition-duration: var(--drt);
     position: relative;
 }
 
@@ -67,3 +71,30 @@ ul {
 }
 
 /* Header Styling */
+header {
+    font-family: var(--main-font);
+    padding: 10px 0;
+    backdrop-filter: brightness(0.85);
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo {
+    font-size: 26px;
+}
+
+header .dark-mode-btn {
+    border: 1px solid currentColor;
+    padding: 9px 9px 5px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+header .dark-mode-btn i {
+    transition-duration: var(--drt);
+}
