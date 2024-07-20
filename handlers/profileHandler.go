@@ -1,37 +1,75 @@
 package handlers
 
 import (
-"fmt"
+	"fmt"
+	"html/template"
 	"net/http"
+	"regexp"
 	"strconv"
-	"text/template"
 
 	"groupie-tracker/data"
 )
-	func Infos(w http.ResponseWriter, r *http.Request) {
-	var digit string
-	tp1,err := template.ParseGlob("static/pages/profile.html")
-	if err != nil {
-		fmt.Println(err)
+
+var IdPath = regexp.MustCompile(`^/artists/(\d+)$`)
+
+func ProfileHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		http.Error(w, "Bad Reaquest", http.StatusBadRequest)
 		return
 	}
-	digit = r.URL.Path[9:]
-	d, err1 := strconv.Atoi(digit)
-if err1 != nil {
-	fmt.Println(err1)
-	return
-}
-	d--
-	p := data.AllinfosType {
-		ArtistT:data.Artist[d],
-		LocationsT:data.Locations[d],
-		DatesT:data.Dates[d],
-		RelationsT:data.Relations[d],
-	 }
 
-	err2 := tp1.ExecuteTemplate(w, "profile.html", p)
-	if err2 != nil {
-		 fmt.Println(err2)
+	matches := IdPath.FindStringSubmatch(r.URL.Path)
+
+	if len(matches) < 1 {
+		http.Error(w, "Page Not Found", http.StatusNotFound)
+		return
+	}
+
+	userId, err := strconv.Atoi(matches[1])
+	if err != nil {
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		return
+	}
+
+	if userId >= len(data.Artist) {
+		http.Error(w, "Page Not Found", http.StatusBadRequest)
+		return
+	}
+
+	tmp, err := template.ParseFiles("./static/pages/profile.html")
+	if err != nil {
+		http.Error(w, "Internal Server error", http.StatusNotFound)
+		fmt.Println("When we parse the index.html")
+		return
+	}
+
+	tmp, err = tmp.ParseGlob("./static/templates/*.html")
+	if err != nil {
+		http.Error(w, "Internal Server error", http.StatusNotFound)
+		fmt.Println("When we parse all templates")
+		return
+	}
+
+	userId--
+
+	profileData := struct {
+		Artist    data.ArtistType
+		Locations []string
+		Dates     []string
+		Relations map[string][]string
+	}{
+		Artist:    data.Artist[userId],
+		Locations: data.Locations.Index[userId].Locations,
+		Dates:     data.Dates.Index[userId].Dates,
+		Relations: data.Relations.Index[userId].DatesLocations,
+	}
+
+	fmt.Println(data.Relations.Index[userId])
+
+	err = tmp.Execute(w, profileData)
+	if err != nil {
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		fmt.Println("When we excute")
 		return
 	}
 }

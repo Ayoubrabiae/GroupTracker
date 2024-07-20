@@ -40,8 +40,8 @@ type DatesType struct {
 
 type RelationsType struct {
 	Index []struct {
-		Id             int               `json:"id"`
-		DatesLocations map[string]string `json:"datesLocations"`
+		Id             int                 `json:"id"`
+		DatesLocations map[string][]string `json:"datesLocations"`
 	} `json:"index"`
 }
 
