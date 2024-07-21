@@ -18,6 +18,7 @@ func main() {
 
 	http.HandleFunc("/", handlers.HomeHandler)
 	http.HandleFunc("/artists/", handlers.ProfileHandler)
-	fmt.Println("http://localhost:8080/")
-	log.Fatal(http.ListenAndServe(":8080", http.DefaultServeMux))
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
+	fmt.Println("http://localhost:8050/")
+	log.Fatal(http.ListenAndServe(":8050", http.DefaultServeMux))
 }
