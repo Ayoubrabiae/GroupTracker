@@ -205,7 +205,7 @@ header .dark-mode-btn i {
 
 /*Footer styling !*/
 footer {
-    background: black ;
+    background: black;
 }
 
 .footercontainer {
@@ -213,57 +213,6 @@ footer {
     padding: 70px 30px 20px;
 }
 
-.socialicon {
-    display: flex;
-    justify-content: center;
-}
-
-.socialicon a {
-    text-decoration: none;
-    padding: 11px;
-    background-color: white;
-    margin: 10px;
-    border-radius: 50%;
-}
-
-.socialicon a i {
-    font-size: 2rem;
-    color: black;
-    opacity: 0.9;
-}
-
-/* Hove effect on social media icons */
-.socialicon a:hover {
-    background-color: black;
-    transition: 0.5s;
-}
-
-.socialicon a:hover i {
-    color: white;
-    transition: 0.5s;
-}
-
-.footnave {
-    margin: 30px 0;
-}
-
-.footnave ul {
-    display: flex;
-    justify-content: center;
-}
-
-.footnave ul li a {
-    color: white;
-    margin: 20px;
-    text-decoration: none;
-    /*, "opacity" refers to the transparency level of an element, typically a block-level or inline-level element on a webpage. It is a numerical value ranging from 0.0 (fully transparent) to 1.0 (fully opaque).*/
-    opacity: 0.7;
-}
-
-.footnave ul li a:hover {
-    opacity: 1;
-    text-align: center;
-}
 
 .footerbottom {
     background-color: black;
@@ -278,9 +227,17 @@ footer {
     justify-content: center;
     align-items: center;
     min-height: 5vh;
-    opacity: 0.7;
-    text-transform: uppercase;
     letter-spacing:1px;
-    font-weight: 400;
-    margin: 20px 8px;
+    color: #ffffff;
+    font-weight: 200;
+    padding: 10px 0;
+
+}
+
+.Producers a {
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0px 7px;
 }
