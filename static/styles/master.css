@@ -166,7 +166,7 @@ header .dark-mode-btn i {
     overflow: hidden;
     border-radius: 50%;
     rotate: 0deg;
-    animation: rotateEffect 10s infinite linear;
+    animation: rotateEffect 60s infinite linear;
 }
 
 .hero .images::after {
@@ -194,6 +194,33 @@ header .dark-mode-btn i {
     }
 }
 
+/* Artists Section Styling */
+.artists {
+    padding: var(--main-pad) 0;
+
+}
+
+.artists .title {
+    text-align: center;
+    text-transform: capitalize;
+    padding: 0 15px;
+    margin-bottom: 50px;
+    font-family: var(--main-font);
+}
+
+.artists .container {}
+
+.artists .card {}
+
+.artists .card a {}
+
+.artists .card .image {}
+
+.artists .card .image img {}
+
+.artists .card .title {}
+
+/* Animations */
 @keyframes rotateEffect {
     0% {
         rotate: 0deg;

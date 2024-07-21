@@ -64,8 +64,6 @@ func ProfileHandler(w http.ResponseWriter, r *http.Request) {
 		Relations: data.Relations.Index[userId].DatesLocations,
 	}
 
-	fmt.Println(data.Relations.Index[userId])
-
 	err = tmp.Execute(w, profileData)
 	if err != nil {
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
