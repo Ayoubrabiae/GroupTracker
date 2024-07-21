@@ -32,16 +32,14 @@ body {
 }
 
 body.dark {
-    --main-color: #FF6347;
-    --sec-color : #FF7F50;
     --act-color: #40E0D0;   
-    --hover-color: #FFD700;
     --text-color: #D3D3D3;
-    --bg-color: #2E2E2E;
+    --bg-color: #0d1117;
 }
 
 a {
     text-decoration: none;
+    color: inherit;
 }
 
 ul {
@@ -116,6 +114,7 @@ header .dark-mode-btn i {
     align-items: center;
     justify-content: center;
     padding: 70px 0;
+    box-shadow: 0 0 1px var(--text-color);
 }
 
 .hero .container {
@@ -197,28 +196,56 @@ header .dark-mode-btn i {
 /* Artists Section Styling */
 .artists {
     padding: var(--main-pad) 0;
-
+/*     background-image: url("/static/images/img3.jpg");
+    background-position: center bottom;
+    background-size: cover; */
 }
 
-.artists .title {
+.artists > .title {
     text-align: center;
-    text-transform: capitalize;
     padding: 0 15px;
     margin-bottom: 50px;
     font-family: var(--main-font);
+    font-size: 40px;
+    text-transform: uppercase;
 }
 
-.artists .container {}
+.artists .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
 
-.artists .card {}
+.artists .card {
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid currentColor;
+    transition-duration: var(--drt);
+    backdrop-filter: blur(10px);
+}
+
+.artists .card:hover {
+    border-color: var(--act-color);
+}
 
 .artists .card a {}
 
-.artists .card .image {}
+.artists .card .image {
+    text-align: center;
+    position: relative;
+    padding: 10px;
+}
 
-.artists .card .image img {}
+.artists .card .image img {
+    width: 100%;
+    border-radius: 5px;
+}
 
-.artists .card .title {}
+.artists .card .title {
+    text-align: center;
+    padding: 10px;
+    font-family: var(--act-font);
+}
 
 /* Animations */
 @keyframes rotateEffect {
