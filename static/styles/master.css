@@ -28,7 +28,7 @@ body {
     color: var(--text-color);
     transition-duration: var(--drt);
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 body.dark {
@@ -84,6 +84,7 @@ header {
     width: 100%;
     left: 0;
     top: 0;
+    z-index: 10;
 }
 
 header .container {
@@ -160,10 +161,7 @@ header .dark-mode-btn i {
     display: grid;
     position: relative;
     grid-template-columns: repeat(2, 1fr);
-    justify-content: flex-end;
     overflow: hidden;
-    border-radius: 5px;
-    transition-duration: var(--drt);
     border: 1px solid;
     overflow: hidden;
     border-radius: 50%;
@@ -194,10 +192,6 @@ header .dark-mode-btn i {
     .hero .images {
         max-width: 70%;
     }
-}
-
-.hero .image img {
-    transition-duration: var(--drt);
 }
 
 @keyframes rotateEffect {
