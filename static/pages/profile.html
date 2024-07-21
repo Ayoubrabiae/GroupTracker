@@ -12,24 +12,23 @@
 </style>
 <body>
     <div class="info">
-        <img src="{{ .Image}}">
         <h2>Name:</h2>
         <p>
-            {{ .Artists.Name }}
+            {{ .Artist.Name }}
         </p> 
         <h2>Members:</h2>
         <p>
-            {{range .Artists.Members}}
+            {{range .Artist.Members}}
             {{.}}
             {{end}}
         </p>
         <h2>CreationDate:</h2>
         <p>
-            {{.Artists.CreationDate}}
+            {{.Artist.CreationDate}}
         </p>
         <h2>First Album:</h2>
         <p>
-        {{.FirstAlbum}}
+        {{.Artist.FirstAlbum}}
     </p>
 
     </div>

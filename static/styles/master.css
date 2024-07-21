@@ -205,19 +205,13 @@ header .dark-mode-btn i {
 
 /*Footer styling !*/
 footer {
-    background: black;
+    background: black
 }
 
 .footercontainer {
     width: 100%;
     padding: 70px 30px 20px;
 }
-
-
-.footerbottom {
-    background-color: black;
-}
-
 .footerbottom p {
     color: white;
 }
@@ -226,17 +220,12 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 5vh;
-    letter-spacing:1px;
     color: #ffffff;
-    font-weight: 200;
-    padding: 10px 0;
-
+    padding: 30px 0;
 }
 
 .Producers a {
-    text-transform: capitalize;
-    color: #ffffff;
+    color: var(--act-color);
     text-decoration: none;
     font-weight: bold;
     padding: 0px 7px;
