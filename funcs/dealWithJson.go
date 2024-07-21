@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-func GetAndParse(URL string, any interface{}) error {
+func GetAndParse(URL string, any any) error {
 	D, err := http.Get(URL)
 	if err != nil {
 		return err
@@ -17,3 +17,4 @@ func GetAndParse(URL string, any interface{}) error {
 	}
 	return nil
 }
+

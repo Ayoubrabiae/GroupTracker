@@ -229,3 +229,31 @@ header .dark-mode-btn i {
         rotate: 360deg; 
     }
 }
+
+/*Footer styling !*/
+footer {
+    background: black
+}
+
+.footercontainer {
+    width: 100%;
+    padding: 70px 30px 20px;
+}
+.footerbottom p {
+    color: white;
+}
+
+.Producers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    padding: 30px 0;
+}
+
+.Producers a {
+    color: var(--act-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0px 7px;
+}
