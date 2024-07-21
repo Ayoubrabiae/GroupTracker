@@ -31,7 +31,7 @@ func ProfileHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if userId >= len(data.Artist) {
+	if userId > len(data.Artist) {
 		http.Error(w, "Page Not Found", http.StatusBadRequest)
 		return
 	}
