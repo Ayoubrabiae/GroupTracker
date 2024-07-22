@@ -52,7 +52,6 @@ func ProfileHandler(w http.ResponseWriter, r *http.Request) {
 
 	userId--
 
-	fmt.Println(data.Relations)
 	profileData := struct {
 		Artist    data.ArtistType
 		Locations []string

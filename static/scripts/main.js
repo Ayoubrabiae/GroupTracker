@@ -2,6 +2,7 @@ const bodyElement = document.body
 const headerElement = document.querySelector("header")
 const darkModeBtn = document.querySelector(".dark-mode-btn")
 
+// Deal with local storage
 const localStorageToggle = (key) => {
     if (localStorage.getItem(key)) {
         localStorage.setItem(key, "")
@@ -9,6 +10,21 @@ const localStorageToggle = (key) => {
         localStorage.setItem(key, "true")
     }
 }
+
+// Header functionality
+const headerFunc = () => {
+    if (window.scrollY > 200) {
+        headerElement.style.top = "0"
+    } else {
+        headerElement.style.top = "-100%"
+    }
+}
+
+headerFunc()
+
+document.addEventListener("scroll", () => {
+    headerFunc()
+})
 
 // Dark mode functionality
 if (localStorage.getItem("dark")) {
@@ -37,7 +53,7 @@ const artistImages = ["queen.jpeg", "soja.jpeg", "pinkfloyd.jpeg", "scorpions.jp
 const heroImageElements = document.querySelectorAll(".hero .images img")
 
 setInterval(() => {
-    const randomElementNum = Math.floor(Math.random() * heroImageElements.length) 
+    const randomElementNum = Math.floor(Math.random() * heroImageElements.length)
     const randomImageNum = Math.floor(Math.random() * artistImages.length)
     const imageSrc = `https://groupietrackers.herokuapp.com/api/images/${artistImages[randomImageNum]}`
     heroImageElements[randomElementNum].src = imageSrc

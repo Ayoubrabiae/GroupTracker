@@ -83,6 +83,7 @@ header {
     left: 0;
     top: 0;
     z-index: 10;
+    transition-duration: calc(var(--drt) * 3);
 }
 
 header .container {
@@ -215,16 +216,20 @@ header .dark-mode-btn i {
 }
 
 .artists .card {
-    overflow: hidden;
     border-radius: 10px;
-    border: 2px solid currentColor;
+    box-shadow: 0 0 10px #cecece;
     transition-duration: var(--drt);
-    backdrop-filter: blur(10px);
+}
+
+.dark .artists .card {
+    border: 2px solid currentColor;
+    box-shadow: 0 0;
 }
 
 .artists .card:hover {
     border-color: var(--act-color);
-    color: var(--act-color);
+    color: white;
+    background-color: var(--act-color);
 }
 
 .artists .card .image {
@@ -243,6 +248,8 @@ header .dark-mode-btn i {
     padding: 10px;
     font-family: var(--act-font);
 }
+
+/* Profile Styling */
 
 /* Animations */
 @keyframes rotateEffect {
