@@ -32,9 +32,9 @@ body {
 }
 
 body.dark {
-    --act-color: #40E0D0;   
-    --text-color: #D3D3D3;
-    --bg-color: #0d1117;
+    --act-color: #1ed760;   
+    --text-color: #fff;
+    --bg-color: #121212;
 }
 
 a {
@@ -93,6 +93,7 @@ header .container {
 
 header .logo {
     font-size: 26px;
+    color: var(--main-color);
 }
 
 header .dark-mode-btn {
@@ -196,9 +197,6 @@ header .dark-mode-btn i {
 /* Artists Section Styling */
 .artists {
     padding: var(--main-pad) 0;
-/*     background-image: url("/static/images/img3.jpg");
-    background-position: center bottom;
-    background-size: cover; */
 }
 
 .artists > .title {
@@ -226,9 +224,8 @@ header .dark-mode-btn i {
 
 .artists .card:hover {
     border-color: var(--act-color);
+    color: var(--act-color);
 }
-
-.artists .card a {}
 
 .artists .card .image {
     text-align: center;

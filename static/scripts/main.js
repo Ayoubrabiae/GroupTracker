@@ -13,6 +13,7 @@ const localStorageToggle = (key) => {
 // Dark mode functionality
 if (localStorage.getItem("dark")) {
     bodyElement.classList.add("dark")
+    darkModeBtn.children[0].classList.add("bxs-sun")
 }
 
 darkModeBtn.addEventListener("click", () => {
