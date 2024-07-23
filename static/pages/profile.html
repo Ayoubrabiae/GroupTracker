@@ -11,7 +11,7 @@
 <body>
     {{ template "header" }}
 
-    <section class="user-info">
+    <section id="user-info" class="user-info">
         <div class="container">
             <div class="image">
                 <img src="{{.Artist.Image}}" alt="artist image">
@@ -39,7 +39,7 @@
             </div>
         </div>
     </section>
-    <section class="locations pr-section">
+    <section id="locations" class="locations pr-section">
         <h2 class="title pr-title">Locations</h2>
         <div class="container pr-container">
             {{ range .Locations }}
@@ -47,7 +47,7 @@
             {{ end }}
         </div>
     </section>
-    <section class="dates pr-section">
+    <section id="dates" class="dates pr-section">
         <h2 class="dates pr-title">Dates</h2>
         <div class="container pr-container">
             {{ range .Dates }}
