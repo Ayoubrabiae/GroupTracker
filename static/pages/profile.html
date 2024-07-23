@@ -39,27 +39,34 @@
             </div>
         </div>
     </section>
-    <section class="locations">
-        <h2 class="title">Locations</h2>
-        <div class="container">
+    <section class="locations pr-section">
+        <h2 class="title pr-title">Locations</h2>
+        <div class="container pr-container">
             {{ range .Locations }}
-                <p class="location">{{ . }}</p>
+                <p class="location pr-item">{{ . }}</p>
             {{ end }}
         </div>
     </section>
-    <section class="dates">
-        <h2 class="dates">Dates</h2>
-        <div class="container">
+    <section class="dates pr-section">
+        <h2 class="dates pr-title">Dates</h2>
+        <div class="container pr-container">
             {{ range .Dates }}
-                <p class="date">{{ . }}</p>
+                <p class="date pr-item">{{ . }}</p>
             {{ end }}
         </div>
     </section>
-    <section class="relations">
-        <h2 class="title">Relations</h2>
+    <section class="relations pr-section">
+        <h2 class="title pr-title">Relations</h2>
         <div class="container">
-            {{ range $key, $val := .Relations }}
-                <p class="relation">{{ $key }}: {{ $val }}</p>
+            {{ range $location, $dates := .Relations }}
+                <div class="relation-location">
+                    <h3 class="title">{{ $location }}</h3>
+                    <div class="relation-location-container">
+                        {{ range $dates }}
+                            <p class="relation-date pr-item">{{ . }}</p>
+                        {{ end }}
+                    </div>
+                </div>
             {{ end }}
         </div>
     </section>

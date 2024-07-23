@@ -72,6 +72,43 @@ img {
     }
 }
 
+/* Components */
+.pr-section {
+    padding: var(--main-pad) 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.pr-section .pr-title {
+    text-align: center;
+    font-size: 40px;
+    font-family: var(--main-font);
+    margin-bottom: 50px;
+}
+
+.pr-section .pr-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    text-align: center;
+    gap: 30px;
+}
+
+.pr-section .pr-item {
+    padding: 8px 30px;
+    border: 1px solid;
+    text-transform: capitalize;
+    transition-duration: var(--drt);
+}
+
+.pr-section .pr-item:hover {
+    color: var(--bg-color);
+    background-color: var(--act-color);
+    border-color: var(--act-color);
+}
+
 /* Header Styling */
 header {
     font-family: var(--main-font);
@@ -271,10 +308,6 @@ header .dark-mode-btn i {
     }
 }
 
-.user-info .image {}
-
-.user-info .image img {}
-
 .user-info .info {
     order: -1;
     width: 550px;
@@ -375,47 +408,38 @@ header .dark-mode-btn i {
     background-color: var(--act-color);
 }
 
-/* Locations */
-.locations {
-    padding: var(--main-pad) 0;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+/* Locations && Relations*/
+.locations, .relations {
     backdrop-filter: brightness(0.95);
 }
 
-.dark .locations {
-    backdrop-filter: brightness(0.5);
+.dark .locations, .dark .relations {
+    backdrop-filter: brightness(0.7);
 }
 
-.locations .title {
+.relations .container {}
+
+.relations .relation-location {
+    margin-bottom: 30px;
+    box-shadow: 0 0 1px;
+    padding: 20px;
+}
+
+.relations .relation-location .title {
     text-align: center;
-    font-size: 40px;
-    font-family: var(--main-font);
-    margin-bottom: 40px;
-}
-
-.locations .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    text-align: center;
-    gap: 30px;
-}
-
-.locations .location {
-    padding: 8px 30px;
-    border: 1px solid;
+    margin-bottom: 20px;
     text-transform: capitalize;
-    transition-duration: var(--drt);
 }
 
-.locations .location:hover {
-    color: var(--bg-color);
-    background-color: var(--act-color);
-    border-color: var(--act-color);
+.relations .relation-location .relation-location-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
 }
+
+.relations .relation-location .relation-date {}
 
 /* Animations */
 @keyframes rotateEffect {
@@ -446,6 +470,7 @@ footer {
     align-items: center;
     color: #ffffff;
     padding: 30px 0;
+    flex-wrap: wrap;
 }
 
 .Producers a {
