@@ -9,25 +9,6 @@ const localStorageToggle = (key) => {
     }
 }
 
-// Header functionality
-/* const headerElement = document.querySelector("header")
-
-if (headerElement) {
-    const headerFunc = () => {
-        if (window.scrollY > 100) {
-            headerElement.style.top = "0"
-        } else {
-            headerElement.style.top = "-100%"
-        }
-    }
-    
-    headerFunc()
-    
-    document.addEventListener("scroll", () => {
-        headerFunc()
-    })
-} */
-
 // Dark mode functionality
 const darkModeBtn = document.querySelector(".dark-mode-btn")
 if (darkModeBtn) {
@@ -64,4 +45,26 @@ if (heroImageElements.length) {
         const imageSrc = `https://groupietrackers.herokuapp.com/api/images/${artistImages[randomImageNum]}`
         heroImageElements[randomElementNum].src = imageSrc
     }, 10000)
+}
+
+// Top Button Functionality
+const topBtn = document.querySelector(".top-arrow")
+
+if (topBtn) {
+    topBtn.addEventListener("click", () => {
+        window.scrollTo(0, 0)
+    })
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 400) {
+            if (!topBtn.classList.contains("show")) {
+                topBtn.classList.add("show")
+            }
+        } else {
+            if (topBtn.classList.contains("show")) {
+                topBtn.classList.remove("show")
+            }
+        }
+    })
+
 }
