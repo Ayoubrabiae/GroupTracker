@@ -18,9 +18,8 @@ body {
     --hover-color: #FFD700;
     --text-color: #333333;
     --bg-color: #FFFFFF;
-    --body-font: "Roboto", sans-serif;
+    --body-font: "Poppins", sans-serif;
     --main-font: "Montserrat", sans-serif;
-    --act-font: "Poppins", sans-serif;
     --drt: 0.3s;
     --main-pad: 100px;
     font-family: var(--body-font);
@@ -78,12 +77,12 @@ header {
     font-family: var(--main-font);
     padding: 10px 0;
     backdrop-filter: brightness(0.85) blur(10px);
-    position: fixed;
+    position: absolute;
     width: 100%;
     left: 0;
     top: 0;
     z-index: 10;
-    transition-duration: calc(var(--drt) * 3);
+    transition-duration: calc(var(--drt) * 2);
 }
 
 header .container {
@@ -246,10 +245,177 @@ header .dark-mode-btn i {
 .artists .card .title {
     text-align: center;
     padding: 10px;
-    font-family: var(--act-font);
 }
 
-/* Profile Styling */
+/** Profile Styling **/
+
+/* user-info styling */
+.user-info {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--main-pad) 0;
+}
+
+.user-info .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+@media (max-width: 991px) {
+    .user-info .container { 
+        flex-direction: column;
+    }
+}
+
+.user-info .image {}
+
+.user-info .image img {}
+
+.user-info .info {
+    order: -1;
+    width: 550px;
+    max-width: 100%;
+}
+
+@media (max-width: 991px) {
+    .user-info .info {
+        order: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .user-info .info {
+        width: 100%;
+    }
+}
+
+.user-info .info .artist-name {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 35px;
+    color: var(--main-color);
+    font-family: var(--main-font);
+}
+
+@media (max-width: 600px) {
+    .user-info .info .artist-name {
+        font-size: 25px;
+        margin-bottom: 30px;
+    }
+}
+
+.user-info .info .dates {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+    .user-info .info .dates {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+}
+
+.user-info .info .dates p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-info .info .dates i {
+    color: var(--act-color);
+}
+
+.user-info .info .members .members-title {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+@media (max-width: 600px) {
+    .user-info .info .members .members-title {
+        margin-bottom: 15px;
+    }
+}
+
+.user-info .info .members .members-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-info .info .members .member {
+    border: 1px solid;
+    padding: 5px 30px;
+    transition-duration: var(--drt);
+}
+
+@media (max-width: 600px) {
+    .user-info .info .members .member {
+        font-size: 14px;
+    }
+}
+
+.user-info .info .members .member:hover {
+    color: var(--bg-color);
+    border-color: var(--act-color);
+    background-color: var(--act-color);
+}
+
+/* Locations */
+.locations {
+    padding: var(--main-pad) 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    backdrop-filter: brightness(0.95);
+}
+
+.dark .locations {
+    backdrop-filter: brightness(0.5);
+}
+
+.locations .title {
+    text-align: center;
+    font-size: 40px;
+    font-family: var(--main-font);
+    margin-bottom: 40px;
+}
+
+.locations .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    text-align: center;
+    gap: 30px;
+}
+
+.locations .location {
+    padding: 8px 30px;
+    border: 1px solid;
+    text-transform: capitalize;
+    transition-duration: var(--drt);
+}
+
+.locations .location:hover {
+    color: var(--bg-color);
+    background-color: var(--act-color);
+    border-color: var(--act-color);
+}
 
 /* Animations */
 @keyframes rotateEffect {
