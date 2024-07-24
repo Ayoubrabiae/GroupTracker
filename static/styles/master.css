@@ -484,8 +484,6 @@ header .dark-mode-btn i {
 }
 
 /* About Styling */
-.about {}
-
 .about .affich {
     padding: var(--main-pad) 0;
     background-image: url("/static/images/about.jpg");
@@ -521,21 +519,55 @@ header .dark-mode-btn i {
     font-size: 20px;
 }
 
-.about > .container {}
+.about > .container {
+    padding: var(--main-pad) 0;
+}
 
-.about .authors {}
+.about .authors .title {
+    font-size: 30px;
+    font-family: var(--main-font);
+    margin-bottom: 30px;
+    text-align: center;
+}
 
-.about .authors .title {}
+.about .authors .authors-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
 
-.about .authors .authors-container {}
+.about .authors .card {
+    box-shadow: 0 0 1px;
+    padding: 20px;
+    border-radius: 10px;
+    transition-duration: var(--drt);
+    width: 350px;
+    max-width: 100%;    
+}
 
-.about .authors .card {}
+.about .authors .card:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
 
-.about .authors .card .image {}
+.about .authors .card .image {
+    margin-bottom: 10px;
+    overflow: hidden;
+    border-radius: 50%;
+}
 
-.about .authors .card .image img {}
+.about .authors .card .image img {
+    background-color: var(--text-color);
+    transition-duration: var(--drt);
+    scale: 1.3;
+    /* filter: brightness(0.9); */
+}
 
-.about .authors .card .name {}
+.about .authors .card .name {
+    text-align: center;
+}
 
 /*Footer styling !*/
 footer {
