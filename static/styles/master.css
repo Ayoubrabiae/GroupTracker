@@ -133,11 +133,12 @@ header .logo {
 }
 
 header .dark-mode-btn {
-    border: 1px solid currentColor;
     padding: 9px 9px 5px;
     border-radius: 50%;
     font-size: 20px;
     cursor: pointer;
+    background-color: var(--text-color);
+    color: var(--bg-color);
 }
 
 header .dark-mode-btn i {
