@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Cards</h1>
-    <div class="Cards">
-        {{range .}}
-        <a href="artists/{{.Id}}">
-            <img src="{{ .Image }}">
+  {{define "card"}}
+  <section class="div-card-container">
+<div class="card">
+    <a href="artists/{{.Id}}">
+    <img src="{{ .Image }}">
+    <div class="Card-content">
             {{ .Name }}
-            {{end}}
         </a>
     </div>
-</body>
-</html>
+</div>
+  </section>
+    {{end}}

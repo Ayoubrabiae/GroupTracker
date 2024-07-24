@@ -153,7 +153,10 @@ header .dark-mode-btn i {
 }
 
 .hero .text p span {
-    color: var(--act-color);
+    color: var(--act-color);   display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-transform: capitalize;
 }
 
@@ -201,6 +204,26 @@ header .dark-mode-btn i {
     100% {
         rotate: 360deg; 
     }
+}
+
+/*Cards styling !*/
+.card-container {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.card {
+    width:325px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+    margin: 20px
 }
 
 /*Footer styling !*/

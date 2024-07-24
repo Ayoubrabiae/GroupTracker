@@ -10,6 +10,8 @@ func GetAndParse(URL string, any any) error {
 	if err != nil {
 		return err
 	}
+	
+defer D.Body.Close()
 
 	err = json.NewDecoder(D.Body).Decode(any)
 	if err != nil {

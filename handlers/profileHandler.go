@@ -31,7 +31,7 @@ func ProfileHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if userId >= len(data.Artist) {
+	if userId > len(data.Artist) {
 		http.Error(w, "Page Not Found", http.StatusBadRequest)
 		return
 	}
@@ -52,7 +52,6 @@ func ProfileHandler(w http.ResponseWriter, r *http.Request) {
 
 	userId--
 
-	fmt.Println(data.Relations)
 	profileData := struct {
 		Artist    data.ArtistType
 		Locations []string
@@ -64,6 +63,7 @@ func ProfileHandler(w http.ResponseWriter, r *http.Request) {
 		Dates:     data.Dates.Index[userId].Dates,
 		Relations: data.Relations.Index[userId].DatesLocations,
 	}
+
 
 	err = tmp.Execute(w, profileData)
 	if err != nil {
