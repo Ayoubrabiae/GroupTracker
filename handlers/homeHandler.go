@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	"groupie-tracker/data"
+	"groupie-tracker/funcs"
 )
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
@@ -31,6 +32,11 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Internal Server error", http.StatusNotFound)
 		fmt.Println("When we parse all templates")
 		return
+	}
+
+	err = funcs.GetAndParse(data.MainData.Artists, &data.Artist)
+	if err != nil {
+		http.Error(w, "Internal server Error", http.StatusInternalServerError)
 	}
 
 	err = tmp.Execute(w, data.Artist)

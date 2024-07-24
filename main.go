@@ -11,10 +11,24 @@ import (
 )
 
 func main() {
-	funcs.GetAndParse("https://groupietrackers.herokuapp.com/api/artists", &data.Artist)
-	funcs.GetAndParse("https://groupietrackers.herokuapp.com/api/locations", &data.Locations)
-	funcs.GetAndParse("https://groupietrackers.herokuapp.com/api/dates", &data.Dates)
-	funcs.GetAndParse("https://groupietrackers.herokuapp.com/api/relation", &data.Relations)
+	/* 	funcs.GetAndParse("https://groupietrackers.herokuapp.com/api/artists", &data.Artist)
+	   	funcs.GetAndParse("https://groupietrackers.herokuapp.com/api/locations", &data.Locations)
+	   	funcs.GetAndParse("https://groupietrackers.herokuapp.com/api/dates", &data.Dates)
+	   	funcs.GetAndParse("https://groupietrackers.herokuapp.com/api/relation", &data.Relations) */
+
+	var err error
+
+	err = funcs.GetAndParse("https://groupietrackers.herokuapp.com/api", &data.MainData)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	err = funcs.GetAndParse(data.MainData.Artists, &data.Artist)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 
 	http.HandleFunc("/", handlers.HomeHandler)
 	http.HandleFunc("/artists/", handlers.ProfileHandler)
