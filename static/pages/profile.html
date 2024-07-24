@@ -42,7 +42,7 @@
     <section id="locations" class="locations pr-section">
         <h2 class="title pr-title">Locations</h2>
         <div class="container pr-container">
-            {{ range .Locations }}
+            {{ range .Locations.Locations }}
                 <p class="location pr-item">{{ . }}</p>
             {{ end }}
         </div>
@@ -50,7 +50,7 @@
     <section id="dates" class="dates pr-section">
         <h2 class="dates pr-title">Dates</h2>
         <div class="container pr-container">
-            {{ range .Dates }}
+            {{ range .Dates.Dates }}
                 <p class="date pr-item">{{ . }}</p>
             {{ end }}
         </div>
@@ -58,7 +58,7 @@
     <section class="relations pr-section">
         <h2 class="title pr-title">Relations</h2>
         <div class="container">
-            {{ range $location, $dates := .Relations }}
+            {{ range $location, $dates := .Relations.DatesLocations }}
                 <div class="relation-location">
                     <h3 class="title">{{ $location }}</h3>
                     <div class="relation-location-container">
