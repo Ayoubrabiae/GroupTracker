@@ -5,15 +5,15 @@ import (
 	"net/http"
 )
 
-func GetAndParse(URL string, any any) error {
-	D, err := http.Get(URL)
+func GetAndParse(url string, v any) error {
+	response, err := http.Get(url)
 	if err != nil {
 		return err
 	}
 
-	defer D.Body.Close()
+	defer response.Body.Close()
 
-	err = json.NewDecoder(D.Body).Decode(any)
+	err = json.NewDecoder(response.Body).Decode(v)
 	if err != nil {
 		return err
 	}
