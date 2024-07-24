@@ -11,10 +11,11 @@ func GetAndParse(URL string, any any) error {
 		return err
 	}
 
+	defer D.Body.Close()
+
 	err = json.NewDecoder(D.Body).Decode(any)
 	if err != nil {
 		return err
 	}
 	return nil
 }
-
