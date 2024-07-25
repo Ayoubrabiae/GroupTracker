@@ -32,15 +32,29 @@
     </p>
     <h2>Locations:</h2>
     <p>
-        {{.Locations}}
+        {{range .Locations}}
+        {{.}}
+        {{end}}
     </p>
     <h2>Dates:</h2>
     <p>
-        {{.Dates}}
+        {{ range .Dates}}
+        {{.}}
+        {{end}}
     </p>
     <h2>Relations:</h2>
-    <p>{{.Relations}}</p>
+   
+    {{range  $location, $dates := .Relations}}
+   
+    {{$location}}
 
+    {{range $dates}}
+ 
+    {{.}}
+   
+    {{end}}
+
+    {{end}}
     </div>
 </body>
 </html>
