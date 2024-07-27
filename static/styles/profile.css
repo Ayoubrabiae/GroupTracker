@@ -23,11 +23,10 @@ margin: 0;
     position: absolute;
     width: 250px;
     height: 340px;
-    text-align: justify;
+    text-align: center;
     background-color: aliceblue;
     border-radius: 15px;
     padding: 20px;
-    transition: 0.5;
    /* In effect, left: calc(50% - 110px); positions the element horizontally at the center of its <div> minus 110 pixels.*/
     left: calc(50% - 110px);
     top: 0;
@@ -55,12 +54,29 @@ margin: 0;
     font-size: x-large;
     font-family: monospace;
     font-weight: bold;
-    left: 50px;
+    left: 45px;
 }
 
 #next{
     left: unset;
-    right: 50px;
+    right: 45px;
+}
+
+.info-child img {
+    border-radius: 15px;
+}
+
+#exit {
+    position: absolute;
+    top: 5%;
+    color:#fff;
+    background: transparent;
+    border: none;
+    /* size of */
+    font-size: x-large;
+    /* the thickness */
+    font-weight: bold;
+    left: 35px;
 }
 
 

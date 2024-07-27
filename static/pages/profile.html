@@ -10,11 +10,11 @@
     <style>
     </style>
 <body>
-    <div class="wrapper">
+        <button id="exit">x</button>
         <div class="info">
             <div class="info-child">
                 
-                <h2>Members:</h2>
+                <h2>Members</h2>
                 <p>
                     {{range .Artist.Members}}
                     <p>
@@ -42,7 +42,7 @@
         <div class="info-child">
             
             
-            <h2>Locations:</h2>
+            <h2>Locations</h2>
             {{range .Locations}}
             <p>
                 {{.}}
@@ -50,7 +50,7 @@
             {{end}}
         </div>
         <div class="info-child">
-            <h2>Name:</h2>
+            <h2>Name</h2>
             <img src="{{.Artist.Image}}">
             <p>
                 {{ .Artist.Name }}
@@ -59,7 +59,7 @@
         <div class="info-child">
             
             
-            <h2>Dates:</h2>
+            <h2>Dates</h2>
             {{ range .Dates}}
             <p>
                 {{.}}
@@ -69,7 +69,7 @@
         </div>
         <div class="info-child">
             
-            <h2>Relations:</h2>
+            <h2>Relations</h2>
             
             {{range  $location, $dates := .Relations}}
             
@@ -86,4 +86,3 @@
     </div>
     <button id="next">></button>
     <button id="prev"><</button>
-</div>
