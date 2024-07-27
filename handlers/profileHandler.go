@@ -29,7 +29,7 @@ func ProfileHandler(w http.ResponseWriter, r *http.Request) {
 
 	idNum, err := strconv.Atoi(id)
 	if err != nil {
-		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		http.Error(w, "Page Not Found", http.StatusNotFound)
 		return
 	}
 
