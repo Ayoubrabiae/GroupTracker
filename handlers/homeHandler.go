@@ -22,14 +22,14 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 
 	tmp, err := template.ParseFiles("./static/pages/index.html")
 	if err != nil {
-		http.Error(w, "Internal Server error", http.StatusNotFound)
+		http.Error(w, "Internal Server error", http.StatusInternalServerError)
 		fmt.Println("When we parse the index.html")
 		return
 	}
 
 	tmp, err = tmp.ParseGlob("./static/templates/*.html")
 	if err != nil {
-		http.Error(w, "Internal Server error", http.StatusNotFound)
+		http.Error(w, "Internal Server error", http.StatusInternalServerError)
 		fmt.Println("When we parse all templates")
 		return
 	}
@@ -41,7 +41,7 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 
 	err = tmp.Execute(w, data.Artist)
 	if err != nil {
-		http.Error(w, "Internal Server error", http.StatusNotFound)
+		http.Error(w, "Internal Server error", http.StatusInternalServerError)
 		fmt.Println("When we excute the html")
 		return
 	}
