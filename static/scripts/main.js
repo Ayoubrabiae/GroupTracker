@@ -1,4 +1,4 @@
-const bodyElement = document.body
+/* const bodyElement = document.body
 const headerElement = document.querySelector("header")
 const darkModeBtn = document.querySelector(".dark-mode-btn")
 
@@ -40,4 +40,43 @@ setInterval(() => {
     const randomImageNum = Math.floor(Math.random() * artistImages.length)
     const imageSrc = `https://groupietrackers.herokuapp.com/api/images/${artistImages[randomImageNum]}`
     heroImageElements[randomElementNum].src = imageSrc
-}, 10000)
+}, 10000) */
+
+/*Artist Details Slide Cards*/
+let items = document.querySelectorAll('.info .info-child');
+let prev = document.getElementById('prev');
+let next = document.getElementById('next');
+
+let active = 3;
+function loadShow(){
+    let setting = 0;
+    items[active].style.transform = `none`;
+    items[active].style.zIndex = 1;
+    items[active].style.filter = 'none';
+    items[active].style.opacity = 1;
+    for(var i = active + 1; i < items.length; i++){
+        setting++;
+        items[i].style.transform = `translateX(${120*setting}px) scale(${1 - 0.2*setting}) perspective(16px) rotateY(-1deg)`;
+        items[i].style.zIndex = -setting;
+        items[i].style.filter = 'blur(5px)';
+        items[i].style.opacity = setting > 2 ? 0 : 0.6;
+    }
+    setting = 0;
+      for(var i = active - 1; i >= 0; i--) {
+        setting++;
+        items[i].style.transform = `translateX(${-120*setting}px) scale(${1 - 0.2*setting}) perspective(16px) rotateY(1deg)`;
+        items[i].style.zIndex = -setting;
+        items[i].style.filter= 'blur(5px)';
+        items[i].style.opacity = setting > 2 ? 0 : 0.6;
+    }
+}
+loadShow();
+next.onclick = function() {
+    active = active + 1 < items.length ? active + 1 : active;
+    loadShow();
+}
+
+prev.onclick = function() {
+    active = active - 1 >= 0 ? active - 1 : active;
+    loadShow();
+}

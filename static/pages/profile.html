@@ -1,60 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artist Infos</title>
-</head>
-<style>
-    .info {
-        margin-bottom: 10px;
-    }
-</style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/styles/profile.css">
+        <title>Artist Infos</title>
+        <script src="/static/scripts/main.js" defer></script>
+    </head>
+    <style>
+    </style>
 <body>
-    <div class="info">
-        <h2>Name:</h2>
-        <p>
-            {{ .Artist.Name }}
-        </p> 
-        <h2>Members:</h2>
-        <p>
-            {{range .Artist.Members}}
-            {{.}}
+    <div class="wrapper">
+        <div class="info">
+            <div class="info-child">
+                
+                <h2>Members:</h2>
+                <p>
+                    {{range .Artist.Members}}
+                    <p>
+                        {{.}}
+                    </p>
+                    {{end}}
+                </p>
+            </div>
+            <div class="info-child">
+                
+                
+                <h2>CreationDate:</h2>
+                <p>
+                    {{.Artist.CreationDate}}
+                </p>
+                
+                <h2>First Album:</h2>
+                <p>
+                    {{.Artist.FirstAlbum}}
+                </p>
+                
+        </div>
+        
+        
+        <div class="info-child">
+            
+            
+            <h2>Locations:</h2>
+            {{range .Locations}}
+            <p>
+                {{.}}
+            </p>
             {{end}}
-        </p>
-        <h2>CreationDate:</h2>
-        <p>
-            {{.Artist.CreationDate}}
-        </p>
-        <h2>First Album:</h2>
-        <p>
-        {{.Artist.FirstAlbum}}
-    </p>
-    <h2>Locations:</h2>
-    <p>
-        {{range .Locations}}
-        {{.}}
-        {{end}}
-    </p>
-    <h2>Dates:</h2>
-    <p>
-        {{ range .Dates}}
-        {{.}}
-        {{end}}
-    </p>
-    <h2>Relations:</h2>
-   
-    {{range  $location, $dates := .Relations}}
-   
-    {{$location}}
-
-    {{range $dates}}
- 
-    {{.}}
-   
-    {{end}}
-
-    {{end}}
+        </div>
+        <div class="info-child">
+            <h2>Name:</h2>
+            <img src="{{.Artist.Image}}">
+            <p>
+                {{ .Artist.Name }}
+            </p> 
+        </div>
+        <div class="info-child">
+            
+            
+            <h2>Dates:</h2>
+            {{ range .Dates}}
+            <p>
+                {{.}}
+            </p>
+            {{end}}
+            
+        </div>
+        <div class="info-child">
+            
+            <h2>Relations:</h2>
+            
+            {{range  $location, $dates := .Relations}}
+            
+            {{$location}}
+            
+            {{range $dates}}
+            
+            <p> {{.}}</p>
+            
+            {{end}}
+            
+            {{end}}
+        </div>
     </div>
-</body>
-</html>
+    <button id="next">></button>
+    <button id="prev"><</button>
+</div>
