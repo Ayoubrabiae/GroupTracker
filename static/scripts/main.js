@@ -99,14 +99,17 @@ the scale factor becomes 1 - 0.2*3 = 1 - 0.6 = 0.4. This would scale the element
         items[i].style.opacity = setting > 2 ? 0 : 0.6;
     }
 }
-loadShow();
-next.onclick = function() {
-    /*if its the last elemnt we add 1 else we we input it without anything*/
-    active = active + 1 < items.length ? active + 1 : 0;
-    loadShow();
-}
 
-prev.onclick = function() {
-    active = active - 1 >= 0 ? active - 1 : items.length - 1;
+if (items.length) {
     loadShow();
+    next.onclick = function() {
+        /*if its the last elemnt we add 1 else we we input it without anything*/
+        active = active + 1 < items.length ? active + 1 : 0;
+        loadShow();
+    }
+    
+    prev.onclick = function() {
+        active = active - 1 >= 0 ? active - 1 : items.length - 1;
+        loadShow();
+    }
 }

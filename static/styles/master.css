@@ -242,11 +242,7 @@ header nav .dark-mode-btn i {
 }
 
 .hero .text p span {
-    color: var(--act-color);   display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-transform: capitalize;
+    color: var(--act-color);
 }
 
 .hero .images {

@@ -30,6 +30,7 @@ margin: 0;
     left: calc(50% - 110px);
     top: 0;
     overflow-y: auto;
+  transition: all 0.3s ease-out;
 }
 
 .info-child::-webkit-scrollbar {
