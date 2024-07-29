@@ -1,12 +1,10 @@
-  {{define "card"}}
-  <section class="div-card-container">
-<div class="card">
-    <a href="artists/{{.Id}}">
-    <img src="{{ .Image }}">
-    <div class="Card-content">
-            {{ .Name }}
+{{ define "card" }}
+    <div class="card">
+        <a href="/artists/{{ .Id }}">
+            <div class="image">
+                <img src="{{ .Image }}" alt="card image">
+            </div>
+            <h3 class="title">{{ .Name }}</h3>
         </a>
     </div>
-</div>
-  </section>
-    {{end}}
+{{ end }}

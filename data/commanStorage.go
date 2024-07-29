@@ -7,13 +7,6 @@ type MainType struct {
 	Relations string `json:"relation"`
 }
 
-type ArtistInfo struct {
-	Artist    ArtistType
-	Locations LocationsType
-	Dates     DatesType
-	Relations RelationsType
-}
-
 type ArtistType struct {
 	Id           int      `json:"id"`
 	Image        string   `json:"image"`
@@ -24,38 +17,29 @@ type ArtistType struct {
 }
 
 type LocationsType struct {
-	Index []struct {
-		Id        int      `json:"id"`
-		Locations []string `json:"locations"`
-		Dates     string   `json:"dates"`
-	} `json:"index"`
+	Id        int      `json:"id"`
+	Locations []string `json:"locations"`
+	Dates     string   `json:"dates"`
 }
 
 type DatesType struct {
-	Index []struct {
-		Id    int      `json:"id"`
-		Dates []string `json:"dates"`
-	} `json:"index"`
+	Id    int      `json:"id"`
+	Dates []string `json:"dates"`
 }
 
 type RelationsType struct {
-	Index []struct {
-		Id             int                 `json:"id"`
-		DatesLocations map[string][]string `json:"datesLocations"`
-	} `json:"index"`
+	Id             int                 `json:"id"`
+	DatesLocations map[string][]string `json:"datesLocations"`
 }
 
-type AllinfosType struct {
-	ArtistT    ArtistType
-	LocationsT LocationsType
-	DatesT     DatesType
-	RelationsT RelationsType
+type ArtistInfo struct {
+	Artist    ArtistType
+	Locations LocationsType
+	Dates     DatesType
+	Relations RelationsType
 }
 
 var (
-	Artist    []ArtistType
-	Locations LocationsType
-	MainData  MainType
-	Dates     DatesType
-	Relations RelationsType
+	Artist   []ArtistType
+	MainData MainType
 )

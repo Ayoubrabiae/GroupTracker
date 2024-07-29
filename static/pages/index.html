@@ -11,11 +11,28 @@
 <body>
     {{ template "header" }}
     {{ template "hero" }}
+<<<<<<< HEAD
     <section>
         {{range .}}
            {{ template "card" .}}
         {{end}}
     </section>
+=======
+
+    <section class="artists">
+        <h2 class="title">Artists</h2>
+        <div class="container">
+            {{ range . }}
+                {{ if ne .Id 21 }}
+                    {{ template "card" . }}
+                {{ end }}
+            {{ end }}
+        </div>
+    </section>
+    
+    {{ template "topArrow" }}
+
+>>>>>>> ayoub
     {{ template "footer"}}
 
     <script type="module" src="/static/scripts/main.js"></script>

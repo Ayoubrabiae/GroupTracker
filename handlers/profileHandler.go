@@ -14,7 +14,7 @@ var IdPath = regexp.MustCompile(`^/artists/(\d+)$`)
 
 func ProfileHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
-		http.Error(w, "Bad Reaquest", http.StatusBadRequest)
+		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
 		return
 	}
 
@@ -25,50 +25,42 @@ func ProfileHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	userId, err := strconv.Atoi(matches[1])
+	id := matches[1]
+
+	idNum, err := strconv.Atoi(id)
 	if err != nil {
-		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		http.Error(w, "Page Not Found", http.StatusNotFound)
 		return
 	}
 
-	if userId > len(data.Artist) {
-		http.Error(w, "Page Not Found", http.StatusBadRequest)
+	if idNum > len(data.Artist) {
+		http.Error(w, "Page Not Found", http.StatusNotFound)
 		return
 	}
 
 	tmp, err := template.ParseFiles("./static/pages/profile.html")
 	if err != nil {
-		http.Error(w, "Internal Server error", http.StatusNotFound)
+		http.Error(w, "Internal Server error", http.StatusInternalServerError)
 		fmt.Println("When we parse the index.html")
 		return
 	}
 
 	tmp, err = tmp.ParseGlob("./static/templates/*.html")
 	if err != nil {
-		http.Error(w, "Internal Server error", http.StatusNotFound)
+		http.Error(w, "Internal Server error", http.StatusInternalServerError)
 		fmt.Println("When we parse all templates")
 		return
 	}
 
-	userId--
-
-	profileData := struct {
-		Artist    data.ArtistType
-		Locations []string
-		Dates     []string
-		Relations map[string][]string
-	}{
-		Artist:    data.Artist[userId],
-		Locations: data.Locations.Index[userId].Locations,
-		Dates:     data.Dates.Index[userId].Dates,
-		Relations: data.Relations.Index[userId].DatesLocations,
+	profileData, err := data.LoadArtistData(id)
+	if err != nil {
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 	}
-
 
 	err = tmp.Execute(w, profileData)
 	if err != nil {
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
-		fmt.Println("When we excute")
+		fmt.Println("When we excute", err)
 		return
 	}
 }

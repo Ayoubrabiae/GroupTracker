@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -86,3 +87,81 @@
     </div>
     <button id="next">></button>
     <button id="prev"><</button>
+=======
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Infos</title>
+    <link rel="stylesheet" href="/static/styles/master.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+ </head>
+<body>
+    {{ template "header" }}
+
+    <section id="user-info" class="user-info">
+        <div class="container">
+            <div class="image">
+                <img src="{{.Artist.Image}}" alt="artist image">
+            </div>
+            <div class="info">
+                <h2 class="artist-name">{{ .Artist.Name }}</h2>
+                <div class="dates">
+                    <p class="creation">
+                        <i class='bx bxs-calendar'></i>
+                        Created at {{ .Artist.CreationDate }}
+                    </p>
+                    <p class="first-album">
+                        <i class='bx bxs-album'></i>
+                        First album was at {{ .Artist.FirstAlbum }}
+                    </p> 
+                </div>
+                <div class="members">
+                    <h2 class="members-title"><i class='bx bxs-group'></i> Members</h2>
+                    <div class="members-container">
+                        {{ range .Artist.Members }}
+                            <p class="member">{{ . }}</p>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="locations" class="locations pr-section">
+        <h2 class="title pr-title">Locations</h2>
+        <div class="container pr-container">
+            {{ range .Locations.Locations }}
+                <p class="location pr-item">{{ . }}</p>
+            {{ end }}
+        </div>
+    </section>
+    <section id="dates" class="dates pr-section">
+        <h2 class="dates pr-title">Dates</h2>
+        <div class="container pr-container">
+            {{ range .Dates.Dates }}
+                <p class="date pr-item">{{ . }}</p>
+            {{ end }}
+        </div>
+    </section>
+    <section class="relations pr-section">
+        <h2 class="title pr-title">Relations</h2>
+        <div class="container">
+            {{ range $location, $dates := .Relations.DatesLocations }}
+                <div class="relation-location">
+                    <h3 class="title">{{ $location }}</h3>
+                    <div class="relation-location-container">
+                        {{ range $dates }}
+                            <p class="relation-date pr-item">{{ . }}</p>
+                        {{ end }}
+                    </div>
+                </div>
+            {{ end }}
+        </div>
+    </section>
+
+    {{ template "topArrow" }}
+
+    {{ template "footer" }}
+    <script type="module" src="/static/scripts/main.js"></script>
+</body>
+</html>
+>>>>>>> ayoub
