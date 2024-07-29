@@ -10,8 +10,6 @@ func GetAndParse(url string, v any) error {
 	if err != nil {
 		return err
 	}
-	
-defer D.Body.Close()
 
 	defer response.Body.Close()
 
