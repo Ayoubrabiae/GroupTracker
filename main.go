@@ -25,7 +25,6 @@ func main() {
 		return
 	}
 
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 	http.HandleFunc("/", handlers.HomeHandler)
 	http.HandleFunc("/artists/", handlers.ProfileHandler)
 	http.HandleFunc("/about", handlers.AboutHandler)

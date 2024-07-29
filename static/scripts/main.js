@@ -28,13 +28,6 @@ if (darkModeBtn) {
 // Hero functionality
 const heroImageElements = document.querySelectorAll(".hero .images img")
 
-setInterval(() => {
-    const randomElementNum = Math.floor(Math.random() * heroImageElements.length) 
-    const randomImageNum = Math.floor(Math.random() * artistImages.length)
-    const imageSrc = `https://groupietrackers.herokuapp.com/api/images/${artistImages[randomImageNum]}`
-    heroImageElements[randomElementNum].src = imageSrc
-}, 10000) 
-
 if (heroImageElements.length) {
     const artistImages = ["queen.jpeg", "soja.jpeg", "pinkfloyd.jpeg", "scorpions.jpeg",
         "xxxtentacion.jpeg", "macmiller.jpeg", "joynerlucas.jpeg", "kencricklamar.jpeg",
@@ -114,6 +107,6 @@ next.onclick = function() {
 }
 
 prev.onclick = function() {
-    active = active - 1 >= 0 ? active - 1 : active;
+    active = active - 1 >= 0 ? active - 1 : items.length - 1;
     loadShow();
 }
