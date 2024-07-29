@@ -56,6 +56,8 @@ function loadShow(){
     items[active].style.opacity = 1;
     for(var i = active + 1; i < items.length; i++){
         setting++;
+/*${1 - 0.2*setting} is a dynamic value computed using the setting variable. If setting is 0, the scale factor is 1 (no scaling). For example, if setting is 3,
+the scale factor becomes 1 - 0.2*3 = 1 - 0.6 = 0.4. This would scale the element down to 40% of its original size.*/
         items[i].style.transform = `translateX(${120*setting}px) scale(${1 - 0.2*setting}) perspective(16px) rotateY(-1deg)`;
         items[i].style.zIndex = -setting;
         items[i].style.filter = 'blur(5px)';
@@ -72,7 +74,8 @@ function loadShow(){
 }
 loadShow();
 next.onclick = function() {
-    active = active + 1 < items.length ? active + 1 : active;
+    /*if its the last elemnt we add 1 else we we input it without anything*/
+    active = active + 1 < items.length ? active + 1 : 0;
     loadShow();
 }
 
