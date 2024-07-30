@@ -3,86 +3,89 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/static/styles/profile.css">
         <title>Artist Infos</title>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="/static/styles/master.css">
+        <link rel="stylesheet" href="/static/styles/profile.css">
         <script src="/static/scripts/main.js" defer></script>
     </head>
 <body>
-        <button id="exit">x</button>
-        <div class="info">
-            <div class="info-child">
-                
-                <h2>Members</h2>
-                <p>
-                    {{range .Artist.Members}}
+    <section class="profile">
+        <i id="exit" class='bx bx-left-arrow-alt'></i>
+        <div class="container">
+            <div class="info">
+                <div class="info-child">
+                    
+                    <h2>Members</h2>
                     <p>
-                        {{.}}
+                        {{range .Artist.Members}}
+                        <p>
+                            {{.}}
+                        </p>
+                        {{end}}
                     </p>
-                    {{end}}
+                </div>
+                <div class="info-child">
+                    
+                    
+                    <h2>CreationDate:</h2>
+                    <p>
+                        {{.Artist.CreationDate}}
+                    </p>
+                    
+                    <h2>First Album:</h2>
+                    <p>
+                        {{.Artist.FirstAlbum}}
+                    </p>
+                    
+                </div>
+            
+            
+            <div class="info-child">
+                
+                
+                <h2>Locations</h2>
+                {{range .Locations.Locations}}
+                <p>
+                    {{.}}
                 </p>
+                {{end}}
+            </div>
+            <div class="info-child">
+                <img src="{{.Artist.Image}}">
+                <h2 class="name">{{ .Artist.Name }}</h2>
             </div>
             <div class="info-child">
                 
                 
-                <h2>CreationDate:</h2>
+                <h2>Dates</h2>
+                {{ range .Dates.Dates}}
                 <p>
-                    {{.Artist.CreationDate}}
+                    {{.}}
                 </p>
-                
-                <h2>First Album:</h2>
-                <p>
-                    {{.Artist.FirstAlbum}}
-                </p>
+                {{end}}
                 
             </div>
-        
-        
-        <div class="info-child">
-            
-            
-            <h2>Locations</h2>
-            {{range .Locations.Locations}}
-            <p>
-                {{.}}
-            </p>
-            {{end}}
+            <div class="info-child">
+                
+                <h2>Relations</h2>
+                
+                {{range  $location, $dates := .Relations.DatesLocations}}
+                
+                {{$location}}
+                
+                {{range $dates}}
+                
+                <p> {{.}}</p>
+                
+                {{end}}
+                
+                {{end}}
+            </div>
         </div>
-        <div class="info-child">
-            <h2>Name</h2>
-            <img src="{{.Artist.Image}}">
-            <p>
-                {{ .Artist.Name }}
-            </p> 
+            <i id="next" class='bx bx-chevron-right'></i>
+            <i id="prev" class='bx bx-chevron-left'></i>
         </div>
-        <div class="info-child">
-            
-            
-            <h2>Dates</h2>
-            {{ range .Dates.Dates}}
-            <p>
-                {{.}}
-            </p>
-            {{end}}
-            
-        </div>
-        <div class="info-child">
-            
-            <h2>Relations</h2>
-            
-            {{range  $location, $dates := .Relations.DatesLocations}}
-            
-            {{$location}}
-            
-            {{range $dates}}
-            
-            <p> {{.}}</p>
-            
-            {{end}}
-            
-            {{end}}
-        </div>
-    </div>
-    <button id="next">></button>
-    <button id="prev"><</button>
+    </section>
 </body>
 </html>
