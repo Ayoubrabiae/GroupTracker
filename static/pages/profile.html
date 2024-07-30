@@ -14,77 +14,61 @@
         <i id="exit" class='bx bx-left-arrow-alt'></i>
         <div class="container">
             <div class="info">
-                <div class="info-child">
-                    
-                    <h2>Members</h2>
-                    <p>
+                <div class="info-child members">
+                    <h2 class="info-child-title">Members</h2>
+                    <div class="members-container">
                         {{range .Artist.Members}}
-                        <p>
-                            {{.}}
-                        </p>
+                        <p class="member">{{.}}</p>
                         {{end}}
-                    </p>
+                    </div>
                 </div>
+
                 <div class="info-child">
+                    <h2 class="info-child-title">CreationDate:</h2>
+                    <p>{{.Artist.CreationDate}}</p>
                     
-                    
-                    <h2>CreationDate:</h2>
-                    <p>
-                        {{.Artist.CreationDate}}
-                    </p>
-                    
-                    <h2>First Album:</h2>
-                    <p>
-                        {{.Artist.FirstAlbum}}
-                    </p>
-                    
+                    <h2 class="info-child-title">First Album:</h2>
+                    <p>{{.Artist.FirstAlbum}}</p>
                 </div>
-            
-            
-            <div class="info-child">
                 
-                
-                <h2>Locations</h2>
-                {{range .Locations.Locations}}
-                <p>
-                    {{.}}
-                </p>
-                {{end}}
-            </div>
-            <div class="info-child">
-                <img src="{{.Artist.Image}}">
-                <h2 class="name">{{ .Artist.Name }}</h2>
-            </div>
-            <div class="info-child">
-                
-                
-                <h2>Dates</h2>
-                {{ range .Dates.Dates}}
-                <p>
-                    {{.}}
-                </p>
-                {{end}}
-                
-            </div>
-            <div class="info-child">
-                
-                <h2>Relations</h2>
-                
-                {{range  $location, $dates := .Relations.DatesLocations}}
-                
-                {{$location}}
-                
-                {{range $dates}}
-                
-                <p> {{.}}</p>
-                
-                {{end}}
-                
-                {{end}}
-            </div>
+                <div class="info-child">                
+                    <h2 class="info-child-title">Locations</h2>
+                    {{range .Locations.Locations}}
+                    <p>{{.}}</p>
+                    {{end}}
+                </div>
+
+                <div class="info-child">
+                    <img src="{{.Artist.Image}}">
+                    <h2 class="info-child-title">{{ .Artist.Name }}</h2>
+                </div>
+
+                <div class="info-child">
+                    <h2 class="info-child-title">Dates</h2>
+
+                    {{ range .Dates.Dates}}
+                        <p>{{.}}</p>
+                    {{end}}
+                </div>
+
+                <div class="info-child">
+                    <h2 class="info-child-title">Relations</h2>
+                    
+                    {{range  $location, $dates := .Relations.DatesLocations}}
+                    
+                        <h3>{{$location}}</h3>
+                    
+                        {{range $dates}}
+                            
+                            <p> {{.}}</p>
+                            
+                        {{end}}
+                    
+                    {{end}}
+                </div>
         </div>
-            <i id="next" class='bx bx-chevron-right'></i>
-            <i id="prev" class='bx bx-chevron-left'></i>
+        <i id="next" class='bx bx-chevron-right'></i>
+        <i id="prev" class='bx bx-chevron-left'></i>
         </div>
     </section>
 </body>

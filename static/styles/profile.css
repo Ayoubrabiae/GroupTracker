@@ -4,6 +4,11 @@
 body {
     margin: 0;
     min-height: 100vh;
+    background-image: linear-gradient(to right top, #ffffff, #fcfdff, #f5fcff, #edfbff, #e5fbff);
+}
+
+body.dark {
+    background-image: linear-gradient(to right top, #000000, #100e10, #18181b, #1d2124, #222b2c);
 }
 
 .profile .container {
@@ -25,17 +30,27 @@ body {
 
 .info-child {
     position: absolute;
-    width: 250px;
-    height: 340px;
+    width: 260px;
+    height: 320px;
     text-align: center;
-    background-color: rgb(199, 229, 255);
+    backdrop-filter: blur(10px);
     border-radius: 15px;
+    box-shadow: 0 0 10px #616161;
     padding: 20px;
-   /* In effect, left: calc(50% - 110px); positions the element horizontally at the center of its <div> minus 110 pixels.*/
     left: calc(50% - 110px);
     top: 0;
     overflow-y: auto;
+    font-size: 14px;
     transition: all 0.3s ease-out;
+}
+
+.info-child img {
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.info-child-title {
+    font-family: var(--main-font);
 }
 
 .info-child::-webkit-scrollbar {
@@ -78,10 +93,6 @@ body {
     }
 }
 
-.info-child img {
-    border-radius: 15px;
-}
-
 #exit {
     position: absolute;
     top: 3%;
@@ -99,6 +110,36 @@ body {
     }
 }
 
+/* member styling */
+.profile .members {
+}
 
+.profile .members .info-child-title {
+    margin-bottom: 20px;
+}
+
+.profile .members .members-container {
+    overflow: auto;
+    height: 80%;
+}
+
+.profile .members .members-container::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+.profile .members .members-container::-webkit-scrollbar-thumb {
+    background: rgb(148, 148, 228);
+    border-radius: 12px;
+}
+
+.profile .members .members-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.profile .members .members-container .member {
+    border: 1px solid;
+    padding: 7px 0;
+    margin-bottom: 10px;
+}
 
 
