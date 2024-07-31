@@ -30,5 +30,6 @@ func main() {
 	http.HandleFunc("/about", handlers.AboutHandler)
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 	fmt.Println("http://localhost:8050/")
+	fmt.Println(-2 + 5)
 	log.Fatal(http.ListenAndServe(":8050", http.DefaultServeMux))
 }

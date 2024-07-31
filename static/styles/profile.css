@@ -37,11 +37,12 @@ body.dark {
     border-radius: 15px;
     box-shadow: 0 0 10px #616161;
     padding: 20px;
-    left: calc(50% - 130px);
+    left: 50%;
     top: 0;
     overflow-y: auto;
     font-size: 14px;
     transition: all 0.3s ease-out;
+    translate: -50%;
 }
 
 .info-child img {
