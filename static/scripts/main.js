@@ -107,12 +107,12 @@ if (items.length) {
     loadShow();
     next.onclick = function() {
         /*if its the last elemnt we add 1 else we we input it without anything*/
-        active = active + 1 < items.length ? active + 1 : items.length / 2;
+        active = active + 1 < items.length ? active + 1 : 0;
         loadShow();
     }
     
     prev.onclick = function() {
-        active = active - 1 >= 0 ? active - 1 : items.length / 2;
+        active = active - 1 >= 0 ? active - 1 : items.length -1;
         loadShow();
     }
 }
