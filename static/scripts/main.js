@@ -122,6 +122,10 @@ const cardsExitBtn = document.querySelector(".profile #exit")
 
 if (cardsExitBtn) {
     cardsExitBtn.addEventListener("click", () => {
+        if (document.referrer != window.location.origin) {
+            window.location.assign(window.location.origin)
+            return
+        }
         window.history.back()
     })
 }

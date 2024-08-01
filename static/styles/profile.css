@@ -26,7 +26,7 @@ body.dark {
 }
 
 .info-child-scroll::-webkit-scrollbar {
-    width: 0.5rem;
+    width: 4px;
 }
 
 .info-child-scroll::-webkit-scrollbar-thumb {
@@ -84,18 +84,6 @@ body.dark {
     margin-bottom: 20px;
 }
 
-.info-child::-webkit-scrollbar {
-    width: 4px;
-}
-
-.info-child::-webkit-scrollbar-thumb {
-    background: rgb(165 165 165 / 22%);;
-    border-radius: 12px;
-}
-
-.info-child::-webkit-scrollbar-track {
-    background: transparent;
-}
 #next, #prev {
     position: absolute;
     top: 50%;
