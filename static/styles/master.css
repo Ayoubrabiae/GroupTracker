@@ -1,0 +1,459 @@
+/* Global Styling */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    --main-color: #FF6347;
+    --sec-color : #FF7F50;
+    --act-color: #87CEEB;   
+    --hover-color: #FFD700;
+    --text-color: #1f1b1b;
+    --bg-color: #FFFFFF;
+    --body-font: "Poppins", sans-serif;
+    --main-font: "Montserrat", sans-serif;
+    --drt: 0.3s;
+    --main-pad: 100px;
+    font-family: var(--body-font);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition-duration: var(--drt);
+    position: relative;
+    overflow-x: hidden;
+}
+
+body.dark {
+    --act-color: #1ed760;   
+    --text-color: #fff;
+    --bg-color: #121212;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/* Components */
+.overlay {
+    position: relative;
+}
+
+.overlay .container {
+    position: relative;
+    z-index: 1;
+}
+
+.overlay::after {
+    content: "";
+    background-color: var(--bg-color);
+    opacity: 0.5;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+/* Header Styling */
+header {
+    font-family: var(--main-font);
+    padding: 10px 0;
+    backdrop-filter: brightness(0.85) blur(10px);
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    transition-duration: calc(var(--drt) * 2);
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo {
+    font-size: 26px;
+    color: var(--main-color);
+}
+
+@media (max-width: 600px) {
+    header .logo {
+        font-size: 20px;
+    }
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+header nav .divider {
+    height: 20px;
+    background-color: var(--text-color);
+    width: 2px;
+    border-radius: 2px;
+    transition-duration: var(--drt);
+}
+
+@media (max-width: 600px) {
+    header nav .divider {
+        height: 15px;
+    }
+}
+
+header nav .dark-mode-btn {
+    padding: 9px 9px 5px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+@media (max-width: 600px) {
+    header nav .dark-mode-btn {
+        font-size: 13px;
+        padding: 9px 9px 6px;
+    }
+}
+
+header nav .dark-mode-btn i {
+    transition-duration: var(--drt);
+}
+
+/* Hero Styling */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 70px 0;
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+@media (max-width: 991px) {
+    .hero .container {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .hero .text {
+        text-align: center;
+    }
+}
+
+.hero .text .title {
+    font-family: var(--main-font);
+    margin-bottom: 25px;
+    font-size: 45px;
+}
+
+@media (max-width: 991px) {
+    .hero .text .title {
+        font-size: 35px;
+    }
+}
+
+.hero .text p {
+    font-size: 20px;
+}
+
+.hero .text p span {
+    color: var(--act-color);
+}
+
+.hero .images {
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(2, 1fr);
+    overflow: hidden;
+    border: 1px solid;
+    overflow: hidden;
+    border-radius: 50%;
+    rotate: 0deg;
+    animation: rotateEffect 60s infinite linear;
+}
+
+.hero .images::after {
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 20%;
+    height: 20%;
+    border-radius: 50%;
+    background-color: var(--bg-color);
+    box-shadow: 0 0 10px inset;
+}
+
+@media (max-width: 991px) {
+    .hero .images {
+        order: -1;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero .images {
+        max-width: 70%;
+    }
+}
+
+/* Artists Section Styling */
+.artists {
+    padding: var(--main-pad) 0;
+}
+
+.artists > .title {
+    text-align: center;
+    padding: 0 15px;
+    margin-bottom: 50px;
+    font-family: var(--main-font);
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+.artists .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.artists .card {
+    border-radius: 10px;
+    box-shadow: 0 0 10px #cecece;
+    transition-duration: var(--drt);
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+}
+
+.dark .artists .card {
+    border: 2px solid currentColor;
+    box-shadow: 0 0;
+}
+
+.artists .card:hover {
+    border-color: var(--act-color);
+    color: white;
+    background-color: var(--act-color);
+}
+
+.artists .card .image {
+    text-align: center;
+    position: relative;
+    padding: 10px;
+}
+
+.artists .card .image img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.artists .card .title {
+    text-align: center;
+    padding: 10px;
+}
+
+/* Top Arrow Styling */
+.top-arrow {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    font-size: 30px;
+    border: 2px solid;
+    padding: 10px 12.5px 0;
+    cursor: pointer;
+    border-radius: 50%;
+    color: var(--act-color);
+    opacity: 0.7;
+    transition-duration: var(--drt);
+    z-index: -1;
+    opacity: 0;
+}
+
+.top-arrow.show {
+    z-index: 0;
+    opacity: 1;
+}
+
+@media (max-width: 600px) {
+    .top-arrow {
+        font-size: 20px;
+        padding: 9px 10.5px 2px;
+    }
+}
+
+.top-arrow.show:hover {
+    opacity: 1;
+    border-color: var(--act-color);
+    background-color: var(--act-color);
+    color: var(--text-color);
+}
+
+/* About Styling */
+.about .affich {
+    padding: var(--main-pad) 0;
+    background-image: url("/static/images/hero.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+.about .affich .container {
+    position: relative;
+    z-index: 2;
+}
+
+.about .affich .title {
+    font-size: 60px;
+    font-family: var(--main-font);
+    margin-bottom: 20px;    
+}
+
+.about .affich p {
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+
+.about > .container {
+    padding: var(--main-pad) 0;
+}
+
+.about .authors .title {
+    font-size: 30px;
+    font-family: var(--main-font);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.about .authors .authors-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.about .authors .card {
+    box-shadow: 0 0 1px;
+    padding: 20px;
+    border-radius: 10px;
+    transition-duration: var(--drt);
+    width: 350px;
+    max-width: 100%;    
+}
+
+.about .authors .card:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+.about .authors .card .image {
+    margin-bottom: 10px;
+}
+
+.about .authors .card .image img {
+    background-color: var(--text-color);
+    transition-duration: var(--drt);
+    border-radius: 50%;
+}
+
+.about .authors .card .name {
+    text-align: center;
+}
+
+/*Footer styling !*/
+footer {
+    background: black
+}
+
+.footercontainer {
+    width: 100%;
+    padding: 70px 30px 20px;
+}
+.footerbottom p {
+    color: white;
+}
+
+.Producers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    padding: 30px 0;
+    flex-wrap: wrap;
+}
+
+.Producers a {
+    color: var(--act-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0px 7px;
+}
+
+/* Animations */
+@keyframes rotateEffect {
+    0% {
+        rotate: 0deg;
+    }
+    100% {
+        rotate: 360deg; 
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
