@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	"groupie-tracker/data"
 	"groupie-tracker/funcs"
@@ -25,10 +26,16 @@ func main() {
 		return
 	}
 
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		port = "8080"
+	}
+
 	http.HandleFunc("/", handlers.HomeHandler)
 	http.HandleFunc("/artists/", handlers.ProfileHandler)
 	http.HandleFunc("/about", handlers.AboutHandler)
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
-	fmt.Println("http://localhost:8050/")
-	log.Fatal(http.ListenAndServe(":8050", http.DefaultServeMux))
+	fmt.Println("http://localhost:" + port)
+	log.Fatal(http.ListenAndServe(":"+port, http.DefaultServeMux))
 }
