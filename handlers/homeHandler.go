@@ -11,7 +11,7 @@ import (
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
-		http.Error(w, "Page Not Found", http.StatusNotFound)
+		http.Error(w, "Page Not Found - 404", http.StatusNotFound)
 		return
 	}
 

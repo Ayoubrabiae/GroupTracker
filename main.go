@@ -20,11 +20,11 @@ func main() {
 		return
 	}
 
-	err = funcs.GetAndParse(data.MainData.Artists, &data.Artist)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
+	/* 	err = funcs.GetAndParse(data.MainData.Artists, &data.Artist)
+	   	if err != nil {
+	   		fmt.Println(err)
+	   		return
+	   	} */
 
 	port := os.Getenv("PORT")
 
