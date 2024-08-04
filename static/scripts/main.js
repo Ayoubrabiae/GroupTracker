@@ -22,7 +22,6 @@ if (darkModeBtn) {
     
     darkModeBtn.addEventListener("click", () => {
         localStorageToggle("dark")
-        console.log(localStorage.getItem("dark"))
         bodyElement.classList.toggle("dark")
         darkModeBtn.children[0].classList.toggle("bxs-sun")
     })
@@ -44,10 +43,10 @@ if (heroImageElements.length) {
 
     setInterval(() => {
         const randomElementNum = Math.floor(Math.random() * heroImageElements.length)
-        const randomImageNum = Math.floor(Math.random() * artistImages.length)
+        const randomImageNum =  Math.floor(Math.random() * artistImages.length)
         const imageSrc = `https://groupietrackers.herokuapp.com/api/images/${artistImages[randomImageNum]}`
         heroImageElements[randomElementNum].src = imageSrc
-    }, 10000)
+    }, 3000)
 }
 
 // Top Button Functionality
@@ -122,8 +121,8 @@ const cardsExitBtn = document.querySelector(".profile #exit")
 
 if (cardsExitBtn) {
     cardsExitBtn.addEventListener("click", () => {
-        if (document.referrer != window.location.origin) {
-            window.location.assign(window.location.origin)
+        if (document.referrer != window.location.origin+"/") {
+           window.location.assign(window.location.origin)
             return
         }
         window.history.back()
