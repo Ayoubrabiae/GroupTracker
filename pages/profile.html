@@ -39,7 +39,7 @@
                     <h2 class="info-child-title">Locations</h2>
                     <div class="locations-container info-child-scroll">
                         {{range .Locations.Locations}}
-                        <p class="location-item info-child-item">{{.}}</p>
+                        <a href="/locations/{{.}}" class="location-item info-child-item">{{.}}</a>
                         {{end}}
                     </div>
                 </div>
