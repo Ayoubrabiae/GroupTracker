@@ -22,8 +22,8 @@ func main() {
 	http.HandleFunc("/", handlers.HomeHandler)
 	http.HandleFunc("/artists/", handlers.ProfileHandler)
 	http.HandleFunc("/about", handlers.AboutHandler)
+	http.HandleFunc("/locations/", handlers.LocationsHandler)
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 	fmt.Println("http://localhost:" + port)
 	log.Fatal(http.ListenAndServe(":"+port, http.DefaultServeMux))
 }
-//

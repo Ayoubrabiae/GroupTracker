@@ -57,3 +57,24 @@ func IdCheck(id string) (bool, error) {
 
 	return idHolder.Id != 0, nil
 }
+
+func LoadLocations() (map[string]bool, error) {
+	var locations struct {
+		Index []struct {
+			Locs []string `json:"locations"`
+		} `json:"index"`
+	}
+	err := funcs.GetAndParse(MainData.Locations, &locations)
+	if err != nil {
+		return map[string]bool{}, err
+	}
+
+	res := map[string]bool{}
+	for _, item := range locations.Index {
+		for _, element := range item.Locs {
+			res[element] = true
+		}
+	}
+
+	return res, nil
+}

@@ -39,4 +39,8 @@ type ArtistInfo struct {
 	Relations RelationsType
 }
 
-var MainData MainType
+var (
+	MainData       MainType
+	CoordinatesApi string = "https://photon.komoot.io/api/?q="
+	MapLink               = "https://www.google.com/maps/search/?api=1&query=%s"
+)
