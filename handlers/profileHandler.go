@@ -19,7 +19,7 @@ func ProfileHandler(w http.ResponseWriter, r *http.Request) {
 
 	matches := IdPath.FindStringSubmatch(r.URL.Path)
 
-	if len(matches) < 1 {
+	if len(matches) < 2 {
 		ErrorHandler(w, "Page Not Found", http.StatusNotFound)
 		return
 	}
