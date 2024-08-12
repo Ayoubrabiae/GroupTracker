@@ -43,13 +43,6 @@ func ProfileHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	tmp, err = tmp.ParseGlob("./templates/*.html")
-	if err != nil {
-		ErrorHandler(w, "Internal Server error", http.StatusInternalServerError)
-		fmt.Println("When we parse all templates")
-		return
-	}
-
 	profileData, err := data.LoadArtistData(id)
 	if err != nil {
 		ErrorHandler(w, "Internal Server Error", http.StatusInternalServerError)
