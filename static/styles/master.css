@@ -12,10 +12,10 @@ html {
 }
 
 body {
-    --main-color: #FF6347;
-    --act-color: #87CEEB;
+    --act-color: #2cbdff;
     --text-color: #1f1b1b;
     --bg-color: #FFFFFF;
+    --border-color: #e9e9e9;
     --body-font: "Poppins", sans-serif;
     --main-font: "Montserrat", sans-serif;
     --drt: 0.3s;
@@ -29,9 +29,8 @@ body {
 }
 
 body.dark {
-    --act-color: #1ed760;
     --text-color: #fff;
-    --bg-color: #121212;
+    --bg-color: #000d16;
 }
 
 a {
@@ -93,14 +92,17 @@ img {
 
 /* Header Styling */
 header {
-    font-family: var(--main-font);
     padding: 10px 0;
-    backdrop-filter: brightness(0.85);
     position: absolute;
     width: 100%;
     left: 0;
     top: 0;
     z-index: 10;
+    box-shadow: 0 0 10px var(--border-color);
+}
+
+.dark header {
+    box-shadow: 0 0 10px #272727;
 }
 
 header .container {
@@ -147,7 +149,7 @@ header nav .divider {
 }
 
 header nav .dark-mode-btn {
-    padding: 9px 9px 5px;
+    padding: 7px 10px 2px;
     border-radius: 50%;
     font-size: 20px;
     cursor: pointer;
@@ -173,6 +175,7 @@ header nav .dark-mode-btn i {
     align-items: center;
     justify-content: center;
     padding: 70px 0;
+    position: relative;
 }
 
 .hero .container {
@@ -271,7 +274,6 @@ header nav .dark-mode-btn i {
 
 .artists .card {
     border-radius: 10px;
-    box-shadow: 0 0 10px #cecece;
     transition-duration: var(--drt);
     animation: appear linear;
     animation-timeline: view();
@@ -279,17 +281,15 @@ header nav .dark-mode-btn i {
     max-width: 300px;
     width: 100%;
     margin: 0 auto;
+    border: 2px solid var(--border-color);
 }
 
 .dark .artists .card {
-    border: 2px solid currentColor;
-    box-shadow: none;
+    border-color: currentColor;
 }
 
 .artists .card:hover {
     border-color: var(--act-color);
-    color: white;
-    background-color: var(--act-color);
 }
 
 .artists .card .image {
