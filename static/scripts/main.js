@@ -28,6 +28,76 @@ if (darkModeBtn) {
 }
 
 // Hero functionality
+const heroElement = document.querySelector(".hero")
+const imagesHolder = document.querySelector(".hero .images")
+const artistImages = ["queen.jpeg", "soja.jpeg", "pinkfloyd.jpeg", "scorpions.jpeg",
+    "xxxtentacion.jpeg", "macmiller.jpeg", "joynerlucas.jpeg", "kencricklamar.jpeg",
+    "acdc.jpeg", "pearljam.jpeg", "katyperry.jpeg", "rihanna.jpeg", "genesis.jpeg",
+    "philcollins.jpeg", "ledzeppelin.jpeg", "jimihendrix.jpeg", "beegees.jpeg", "deeppurple.jpeg",
+    "aerosmith.jpeg", "direstraits.jpeg", "30.jpeg", "imagineDragons.jpeg", "juiceWrld.jpeg", "logic.jpeg",
+    "alecBeenjamin.jpeg", "bobbyMcFerrin.jpeg", "R3HAB.jpeg", "postmalone.jpeg", "travisScott.jpeg", "jCole.jpeg",
+    "nickelback.jpeg", "mobbDeep.jpeg", "gunsNRoses.jpeg", "nwa.jpeg", "u2.jpeg", "arcticmonkeys.jpeg", "fallOutBoy.jpeg",
+    "gorillaz.jpeg", "eagles.jpeg", "linkinpark.jpeg", "redhotchilipeppers.jpeg", "eminem.jpeg", "greenday.jpeg", "metallica.jpeg",
+    "coldplay.jpeg", "maroon5.jpeg", "twentyonepilots.jpeg", "therollingstones.jpeg", "muse.jpeg", "foofighters.jpeg", "thechainsmokers.jpeg"]
+
+const addImages = (element, images, len) => {
+    element.innerHTML = ""
+    images.forEach((imageName, i) => {
+        if (len <= i) {
+            return
+        }
+        const imgContainer = document.createElement("div")
+        imgContainer.classList.add("image")
+    
+        const img = document.createElement("img")
+        const imgSrc = "https://groupietrackers.herokuapp.com/api/images/"+imageName
+        img.src = imgSrc
+
+        imgContainer.append(img)
+    
+        element.append(imgContainer)
+    })
+}
+
+let images
+let before = []
+let activeElements = 0
+
+if (imagesHolder) {
+    let elmentsNum = Math.ceil((heroElement.clientWidth / 130 ) * ((heroElement.clientHeight-60) / 130))-2
+    addImages(imagesHolder, artistImages, elmentsNum)
+    images = document.querySelectorAll(".hero .images img")
+    activeElements = elmentsNum / 5 > 5 ? 5 : Math.ceil(elmentsNum / 5)
+
+    window.addEventListener("resize", ()=>{
+        let elmentsNum = Math.ceil((heroElement.clientWidth / 130 ) * ((heroElement.clientHeight-60) / 130))-2
+        activeElements = elmentsNum / 5 > 5 ? 5 : Math.ceil(elmentsNum / 5)
+        console.log(activeElements)
+        addImages(imagesHolder, artistImages, elmentsNum)
+        images = document.querySelectorAll(".hero .images img")
+    })
+}
+
+for (let i=0; i<activeElements;i++) {
+    const randomNum = Math.floor(Math.random() * images.length)
+    before.push(images[randomNum])
+    console.log(images)
+    images[randomNum].classList.add("show")
+}
+
+setInterval(()=>{
+    if (before.length > 0) {
+        before.forEach(e => {
+            e.classList.remove("show")
+        })
+    }
+    for (let i=0; i<activeElements;i++) {
+        const randomNum = Math.floor(Math.random() * images.length)
+        console.log(images[randomNum])
+        before.push(images[randomNum])
+        images[randomNum].classList.add("show")
+    }
+}, 5000)
 
 // Top Button Functionality 
 const topBtn = document.querySelector(".top-arrow")

@@ -184,12 +184,12 @@ header nav .dark-mode-btn i {
     justify-content: center;
     text-align: center;
     gap: 30px;
+    z-index: 1;
 }
 
 @media (max-width: 991px) {
     .hero .container {
         flex-direction: column;
-        gap: 50px;
     }
 
     .hero .text {
@@ -223,42 +223,33 @@ header nav .dark-mode-btn i {
 }
 
 .hero .images {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    border: 1px solid;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 60px;
+    display: flex;
+    flex-wrap: wrap;
     overflow: hidden;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero .images-column::-webkit-scrollbar {
+    width: 0px;
+}
+
+.hero .images img {
+    -webkit-user-drag: none;
+    opacity: 0;
+    transition-duration: var(--drt);
     border-radius: 50%;
-    animation: rotateEffect 60s infinite linear;
-    position: absolute;
-    left: 50%;
-    bottom: 0%;
-    transform: translate(-50%, 50%);
-    transform-origin: center;
+    width: 100px;
 }
 
-.hero .images::after {
-    position: absolute;
-    content: "";
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 20%;
-    height: 20%;
-    border-radius: 50%;
-    background-color: var(--bg-color);
-    box-shadow: 0 0 10px inset;
-}
-
-@media (max-width: 991px) {
-    .hero .images {
-        order: -1;
-    }
-}
-
-@media (max-width: 767px) {
-    .hero .images {
-        max-width: 70%;
-    }
+.hero .images img.show {
+    opacity: 1;
 }
 
 /* Artists Section Styling */
