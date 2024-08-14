@@ -81,7 +81,6 @@ if (imagesHolder) {
 for (let i=0; i<activeElements;i++) {
     const randomNum = Math.floor(Math.random() * images.length)
     before.push(images[randomNum])
-    console.log(images)
     images[randomNum].classList.add("show")
 }
 
@@ -93,7 +92,6 @@ setInterval(()=>{
     }
     for (let i=0; i<activeElements;i++) {
         const randomNum = Math.floor(Math.random() * images.length)
-        console.log(images[randomNum])
         before.push(images[randomNum])
         images[randomNum].classList.add("show")
     }
