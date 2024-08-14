@@ -38,14 +38,14 @@ func ProfileHandler(w http.ResponseWriter, r *http.Request) {
 			Artist: data.ArtistType{
 				Id:           360,
 				Image:        "/static/images/cheb.jpg",
-				Name:         "Checb L3arbi",
+				Name:         "Cheb L3arbi",
 				Members:      []string{"Cheb L3arebi"},
 				CreationDate: 2020,
 				FirstAlbum:   "2019-2-30",
 			},
 			Locations: data.LocationsType{
 				Id:        360,
-				Locations: []string{"Darhom", "Ras Derb", "Twalit", "New York", "LV", "Asfi", "Lmrikh"},
+				Locations: []string{"Darhom", "Ras-Derb", "New-York", "LV", "Asfi"},
 				Dates:     "kljdfhqsdhlfkhgqkjsdgf",
 			},
 			Dates: data.DatesType{
@@ -70,7 +70,7 @@ func ProfileHandler(w http.ResponseWriter, r *http.Request) {
 						"2019-02-31",
 						"1942-09-14",
 					},
-					"Lmirikh": {
+					"Ras-Derb": {
 						"1942-09-14",
 						"2019-05-20",
 						"2006-05-12",
