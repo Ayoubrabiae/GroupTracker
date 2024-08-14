@@ -40,7 +40,7 @@ const artistImages = ["queen.jpeg", "soja.jpeg", "pinkfloyd.jpeg", "scorpions.jp
     "gorillaz.jpeg", "eagles.jpeg", "linkinpark.jpeg", "redhotchilipeppers.jpeg", "eminem.jpeg", "greenday.jpeg", "metallica.jpeg",
     "coldplay.jpeg", "maroon5.jpeg", "twentyonepilots.jpeg", "therollingstones.jpeg", "muse.jpeg", "foofighters.jpeg", "thechainsmokers.jpeg"]
 
-const addImages = (element, images, len) => {
+const addImages = (element, images, len, width) => {
     element.innerHTML = ""
     images.forEach((imageName, i) => {
         if (len <= i) {
@@ -50,6 +50,7 @@ const addImages = (element, images, len) => {
         imgContainer.classList.add("image")
     
         const img = document.createElement("img")
+        img.style.width = `${width}px`
         const imgSrc = "https://groupietrackers.herokuapp.com/api/images/"+imageName
         img.src = imgSrc
 
@@ -64,16 +65,17 @@ let before = []
 let activeElements = 0
 
 if (imagesHolder) {
-    let elmentsNum = Math.ceil((heroElement.clientWidth / 130 ) * ((heroElement.clientHeight-60) / 130))-2
-    addImages(imagesHolder, artistImages, elmentsNum)
+    const width = Number(heroElement.getAttribute("data-width"))
+    let elmentsNum = Math.ceil((heroElement.clientWidth /width) * ((heroElement.clientHeight-60) /width))-2
+    addImages(imagesHolder, artistImages, elmentsNum, width)
     images = document.querySelectorAll(".hero .images img")
     activeElements = elmentsNum / 5 > 5 ? 5 : Math.ceil(elmentsNum / 5)
 
     window.addEventListener("resize", ()=>{
-        let elmentsNum = Math.ceil((heroElement.clientWidth / 130 ) * ((heroElement.clientHeight-60) / 130))-2
+        let elmentsNum = Math.ceil((heroElement.clientWidth /width) * ((heroElement.clientHeight-60) /width))-2
         activeElements = elmentsNum / 5 > 5 ? 5 : Math.ceil(elmentsNum / 5)
         console.log(activeElements)
-        addImages(imagesHolder, artistImages, elmentsNum)
+        addImages(imagesHolder, artistImages, elmentsNum, width)
         images = document.querySelectorAll(".hero .images img")
     })
 }
