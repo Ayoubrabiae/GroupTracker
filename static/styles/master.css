@@ -224,7 +224,7 @@ header nav .dark-mode-btn i {
 }
 
 .hero .images {
-    height: calc(100% - 60px);
+    height: calc(100% - 70px);
     width: 100%;
     position: absolute;
     left: 0;
