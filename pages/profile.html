@@ -83,6 +83,10 @@
         <i id="next" class='bx bx-chevron-right'></i>
         <i id="prev" class='bx bx-chevron-left'></i>
         </div>
+
+        {{if eq .Artist.Id 360}} 
+            <audio autoplay loop src="/static/audio/cheb.mp3"></audio>
+        {{end}}
     </section>
 </body>
 </html>

@@ -18,16 +18,16 @@ func LocationsHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	place := matches[1]
-	allowdedPlaces, err := data.LoadLocations()
-	if err != nil {
-		ErrorHandler(w, "Internal Server Error", http.StatusInternalServerError)
-		return
-	}
+	/* 	allowdedPlaces, err := data.LoadLocations()
+	   	if err != nil {
+	   		ErrorHandler(w, "Internal Server Error", http.StatusInternalServerError)
+	   		return
+	   	}
 
-	if !allowdedPlaces[place] {
-		ErrorHandler(w, "Page Not Found", http.StatusNotFound)
-		return
-	}
+	   	if !allowdedPlaces[place] {
+	   		ErrorHandler(w, "Page Not Found", http.StatusNotFound)
+	   		return
+	   	} */
 
 	cords, err := funcs.GetCoordinates(data.CoordinatesApi + funcs.FixStringForApi(place) + "&limit=1")
 	if err != nil {

@@ -18,6 +18,16 @@
                     {{if ne .Id 21}}
                     {{ template "card" . }}
                     {{end}}
+                    {{if eq .Id 21}}
+                        <div class="card">
+                            <a href="/artists/{{360}}">
+                                <div class="image">
+                                    <img src="/static/images/cheb.jpg" alt="card image">
+                                </div>
+                                <h3 class="title">Cheb L3arbi</h3>
+                            </a>
+                        </div>
+                    {{end}}
             {{ end }}
         </div>
     </section>
