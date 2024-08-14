@@ -53,6 +53,7 @@ const addImages = (element, images, len, width) => {
         img.style.width = `${width}px`
         const imgSrc = "https://groupietrackers.herokuapp.com/api/images/"+imageName
         img.src = imgSrc
+        img.alt = "artist image"
 
         imgContainer.append(img)
     
@@ -74,7 +75,6 @@ if (imagesHolder) {
     window.addEventListener("resize", ()=>{
         let elmentsNum = Math.ceil((heroElement.clientWidth /width) * ((heroElement.clientHeight-60) /width))-2
         activeElements = elmentsNum / 5 > 5 ? 5 : Math.ceil(elmentsNum / 5)
-        console.log(activeElements)
         addImages(imagesHolder, artistImages, elmentsNum, width)
         images = document.querySelectorAll(".hero .images img")
     })

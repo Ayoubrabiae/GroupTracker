@@ -44,6 +44,7 @@ ul {
 
 img {
     max-width: 100%;
+    -webkit-user-drag: none;
 }
 
 .container {
@@ -92,17 +93,13 @@ img {
 
 /* Header Styling */
 header {
-    padding: 10px 0;
+    padding: 15px 0;
     position: absolute;
     width: 100%;
     left: 0;
     top: 0;
     z-index: 10;
-    box-shadow: 0 0 10px var(--border-color);
-}
-
-.dark header {
-    box-shadow: 0 0 10px #272727;
+    background-color: var(--bg-color);
 }
 
 header .container {
@@ -176,6 +173,9 @@ header nav .dark-mode-btn i {
     justify-content: center;
     padding: 70px 0;
     position: relative;
+    background-image: url("/static/images/hero.jpg");
+    background-size: cover;
+    background-position: center;
 }
 
 .hero .container {
@@ -223,7 +223,7 @@ header nav .dark-mode-btn i {
 }
 
 .hero .images {
-    height: 100vh;
+    height: calc(100% - 60px);
     width: 100%;
     position: absolute;
     left: 0;
