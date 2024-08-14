@@ -99,7 +99,7 @@ setInterval(()=>{
     }
 }, 5000)
 
-// Top Button Functionality 
+// Top Button Functionality
 const topBtn = document.querySelector(".top-arrow")
 
 if (topBtn) {
