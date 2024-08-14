@@ -176,6 +176,7 @@ header nav .dark-mode-btn i {
     background-image: url("/static/images/hero.jpg");
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
 }
 
 .hero .container {
